@@ -6,13 +6,13 @@ public class PhysicsObject : MonoBehaviour
 	public float gravityModifier = 1f;
 	public float minGroundNormalY = .65f;
 	
-	protected const float minMoveDistance = 0.001f;
-	protected const float shellRadius = 0.01f;
+	protected const float MinMoveDistance = 0.001f;
+	protected const float ShellRadius = 0.01f;
+	
 	protected ContactFilter2D contactFilter;
 	protected Vector2 groundNormal;
-	protected RaycastHit2D[] hitBuffer = new RaycastHit2D[16];
-	protected List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>(16);
 	protected Rigidbody2D rb2d;
+	protected readonly List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>(16);
 
 	protected Vector2 targetVelocity;
 	protected Vector2 velocity;
@@ -56,15 +56,9 @@ public class PhysicsObject : MonoBehaviour
 	private void Movement(Vector2 move, bool yMovement)
 	{
 		float distance = move.magnitude;
-		if (distance > minMoveDistance)
+		if (distance > MinMoveDistance)
 		{
-			int count = rb2d.Cast(move, contactFilter, hitBuffer, distance + shellRadius);
-			hitBufferList.Clear();
-			for (int i = 0; i < count; i++)
-			{
-				hitBufferList.Add(hitBuffer[i]);
-			}
-
+			rb2d.Cast(move, contactFilter, hitBufferList, distance + ShellRadius);
 			foreach (RaycastHit2D hit in hitBufferList)
 			{
 				Vector2 currentNormal = hit.normal;
@@ -84,7 +78,7 @@ public class PhysicsObject : MonoBehaviour
 					velocity -= projection * currentNormal;
 				}
 
-				float modifiedDistance = hit.distance - shellRadius;
+				float modifiedDistance = hit.distance - ShellRadius;
 				distance = modifiedDistance < distance ? modifiedDistance : distance;
 			}
 		}

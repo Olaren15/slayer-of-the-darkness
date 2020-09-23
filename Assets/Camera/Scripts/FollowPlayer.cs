@@ -12,7 +12,7 @@ public class FollowPlayer : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         Vector3 cameraPosition = transform.position;
 

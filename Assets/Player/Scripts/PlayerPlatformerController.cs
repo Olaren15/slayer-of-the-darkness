@@ -9,6 +9,7 @@ public class PlayerPlatformerController : PhysicsObject
 	private Animator animator;
 	private SpriteRenderer spriteRenderer;
 	private Controls controls;
+	private bool isFlipped;
 
 	private static readonly int Grounded = Animator.StringToHash("grounded");
 	private static readonly int VelocityX = Animator.StringToHash("velocityX");
@@ -43,10 +44,12 @@ public class PlayerPlatformerController : PhysicsObject
 
 	private Vector2 Move(float inputX)
 	{
-		bool flipSprite = spriteRenderer.flipX ? inputX > 0.0f : inputX < 0.0f;
-		if (flipSprite)
+		bool needToFlip = isFlipped ? inputX > 0.0f : inputX < 0.0f;
+		if (needToFlip)
 		{
-			spriteRenderer.flipX = !spriteRenderer.flipX;
+			// spriteRenderer.flipX = !spriteRenderer.flipX;
+			transform.rotation = Quaternion.Euler(0.0f, isFlipped ? 0.0f : 180.0f, 0.0f);
+			isFlipped = !isFlipped;
 		}
 		
 		return new Vector2(inputX * maxSpeed, 0.0f);
