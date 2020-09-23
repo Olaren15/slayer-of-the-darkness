@@ -19,7 +19,55 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4df57bdc-342d-463c-ab54-104a7fd5f758" name="Default Changelist" comment="" />
+    <list default="true" id="4df57bdc-342d-463c-ab54-104a7fd5f758" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bandits - Pixel Art.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bandits - Pixel Art/Sprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bandits - Pixel Art/Sprites/Background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bandits - Pixel Art/Sprites/Background.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bandits - Pixel Art/Sprites/EnvironmentTiles.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bandits - Pixel Art/Sprites/EnvironmentTiles.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bandits - Pixel Art/Sprites/HeavyBandit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bandits - Pixel Art/Sprites/HeavyBandit.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bandits - Pixel Art/Sprites/LightBandit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Bandits - Pixel Art/Sprites/LightBandit.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cainos.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cainos/Pixel Art Platformer - Village Props.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cainos/Pixel Art Platformer - Village Props/Texture.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cainos/Pixel Art Platformer - Village Props/Texture/GroundRueTile.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cainos/Pixel Art Platformer - Village Props/Texture/GroundRueTile.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Background Grid.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Background Grid.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Particle Flame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Particle Flame.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Tileset Ground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Tileset Ground.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Village Props.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Village Props.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art/Sprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art/Sprites/Background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art/Sprites/Background.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art/Sprites/BlockFlash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art/Sprites/BlockFlash.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art/Sprites/EnvironmentTiles.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art/Sprites/EnvironmentTiles.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art/Sprites/HeroKnight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art/Sprites/HeroKnight.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art/Sprites/HeroKnight_0.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art/Sprites/HeroKnight_0.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art/Sprites/HeroKnight_BlockNoEffect.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art/Sprites/HeroKnight_BlockNoEffect.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art/Sprites/HeroKnight_DeathNoBlood.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art/Sprites/HeroKnight_DeathNoBlood.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art/Sprites/New Animation.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art/Sprites/New Animation.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art/Sprites/SlideDust.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hero Knight - Pixel Art/Sprites/SlideDust.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,6 +87,7 @@
         <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerSounds.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Scripts/PhysicsObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Camera/Scripts/FollowPlayer.cs" />
       </list>
     </option>
   </component>
@@ -49,6 +98,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -59,6 +109,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
@@ -90,6 +141,8 @@
       <updated>1600807773017</updated>
       <workItem from="1600807776023" duration="2064000" />
       <workItem from="1600829456867" duration="6663000" />
+      <workItem from="1600896779463" duration="74000" />
+      <workItem from="1600897060268" duration="1572000" />
     </task>
     <servers />
   </component>
