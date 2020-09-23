@@ -20,25 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4df57bdc-342d-463c-ab54-104a7fd5f758" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/PhysicsObject.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PhysicsObject.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerAnimatorController.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerAnimatorController.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerPlatformerController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/PlayerPlatformerController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/falling.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/falling.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/idle.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/idle.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/jumpClimax.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/jumpClimax.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/jumping.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/jumping.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/running.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/running.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/takeoff.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/takeoff.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Camera/Main Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera/Main Camera.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Camera/Scripts/FollowPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera/Scripts/FollowPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Animations/PlayerAnimatorController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Animations/PlayerAnimatorController.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +45,9 @@
         <option value="$PROJECT_DIR$/Assets/Utilities/SFXPlayer/Scripts/SFXPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Utilities/SFXPlayer/Scripts/SoundEffect.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerSounds.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/Scripts/PhysicsObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Camera/Scripts/FollowPlayer.cs" />
       </list>
     </option>
   </component>
@@ -66,6 +57,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -76,8 +69,17 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Build\Slayer of The Darkness.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="D:\cathe\code\slayer-of-the-darkness\Build" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -106,6 +108,9 @@
       <option name="presentableId" value="Default" />
       <updated>1600807773017</updated>
       <workItem from="1600807776023" duration="2064000" />
+      <workItem from="1600829456867" duration="6663000" />
+      <workItem from="1600896779463" duration="74000" />
+      <workItem from="1600897060268" duration="6193000" />
     </task>
     <servers />
   </component>
@@ -124,14 +129,19 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="781" y="169" key="SettingsEditor" timestamp="1600809016336">
+    <state x="1054" y="185" key="SettingsEditor" timestamp="1600900642757">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state x="781" y="169" key="SettingsEditor/0.0.2560.1050@0.0.2560.1050" timestamp="1600809016336" />
+    <state x="1054" y="185" key="SettingsEditor/0.0.2560.1050@0.0.2560.1050" timestamp="1600900642757" />
+    <state x="943" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1600834888717">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state x="943" y="227" width="672" height="678" key="search.everywhere.popup/0.0.2560.1050@0.0.2560.1050" timestamp="1600834888717" />
   </component>
 </project>

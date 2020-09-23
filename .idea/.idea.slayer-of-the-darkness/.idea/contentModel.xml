@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\cathe\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\cathe\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_slayer-of-the-darkness.1574841462.00" t="ExcludeRecursive" />
-    <e p="D:\cathe\Downloads\slayer-of-the-darkness" t="IncludeRecursive">
+    <e p="C:\Users\cathe\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_slayer-of-the-darkness.487680880.00" t="ExcludeRecursive" />
+    <e p="D:\cathe\code\slayer-of-the-darkness" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Camera" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="FollowTarget.cs" t="Include" />
+          </e>
+        </e>
         <e p="Player" t="Include">
           <e p="Scripts" t="Include">
             <e p="PhysicsObject.cs" t="Include" />
@@ -14,6 +19,9 @@
           </e>
         </e>
         <e p="Utilities" t="Include">
+          <e p="Input" t="Include">
+            <e p="Controls.cs" t="Include" />
+          </e>
           <e p="SFXPlayer" t="Include">
             <e p="Scripts" t="Include">
               <e p="SFXPlayer.cs" t="Include" />
