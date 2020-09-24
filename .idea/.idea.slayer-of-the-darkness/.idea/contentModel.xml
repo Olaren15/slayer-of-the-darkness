@@ -22,6 +22,11 @@
           <e p="Input" t="Include">
             <e p="Controls.cs" t="Include" />
           </e>
+          <e p="PauseMenu" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="PauseMenu.cs" t="Include" />
+            </e>
+          </e>
           <e p="SFXPlayer" t="Include">
             <e p="Scripts" t="Include">
               <e p="SFXPlayer.cs" t="Include" />
