@@ -17,6 +17,7 @@ public class PhysicsObject : MonoBehaviour
 	protected Vector2 targetVelocity;
 	protected Vector2 velocity;
 	protected bool grounded;
+	protected bool disableGravity = false;
 
 	private void OnEnable()
 	{
@@ -33,6 +34,17 @@ public class PhysicsObject : MonoBehaviour
 	private void Update()
 	{
 		targetVelocity = Vector2.zero;
+
+		// Freeze y position when gravity is disabled
+		if (disableGravity)
+		{
+			rb2d.constraints |= RigidbodyConstraints2D.FreezePositionY;
+		}
+		else
+		{
+			rb2d.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+		}
+		
 		ComputeVelocity();
 	}
 
@@ -41,6 +53,10 @@ public class PhysicsObject : MonoBehaviour
 	private void FixedUpdate()
 	{
 		velocity += Physics2D.gravity * (gravityModifier * Time.deltaTime);
+		if (disableGravity)
+		{
+			velocity.y = 0.0f;
+		}
 		velocity.x = targetVelocity.x;
 		grounded = false;
 
@@ -83,6 +99,13 @@ public class PhysicsObject : MonoBehaviour
 			}
 		}
 
-		rb2d.position += move.normalized * distance;
+		Vector2 targetPosition = rb2d.position;
+		targetPosition += move.normalized * distance;
+		if (disableGravity)
+		{
+			targetPosition.y = rb2d.position.y;
+		}
+
+		rb2d.position = targetPosition;
 	}
 }
