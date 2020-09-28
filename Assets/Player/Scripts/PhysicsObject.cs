@@ -12,12 +12,16 @@ public class PhysicsObject : MonoBehaviour
 	protected ContactFilter2D contactFilter;
 	protected Vector2 groundNormal;
 	protected Rigidbody2D rb2d;
-	protected readonly List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>(16);
+	protected readonly List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>();
 
 	protected Vector2 targetVelocity;
 	protected Vector2 velocity;
 	protected bool grounded;
 	protected bool disableGravity = false;
+
+	public PhysicsObject()
+	{
+	}
 
 	private void OnEnable()
 	{
@@ -98,14 +102,6 @@ public class PhysicsObject : MonoBehaviour
 				distance = modifiedDistance < distance ? modifiedDistance : distance;
 			}
 		}
-
-		Vector2 targetPosition = rb2d.position;
-		targetPosition += move.normalized * distance;
-		if (disableGravity)
-		{
-			targetPosition.y = rb2d.position.y;
-		}
-
-		rb2d.position = targetPosition;
+		rb2d.position += move.normalized * distance;
 	}
 }

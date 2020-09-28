@@ -9,7 +9,6 @@ public class PlayerPlatformerController : PhysicsObject
 
 	private Animator animator;
 	private BoxCollider2D boxCollider;
-	private GameManager gameManager;
 	
 	private bool isFlipped;
 	private bool isOnLadder;
@@ -32,9 +31,8 @@ public class PlayerPlatformerController : PhysicsObject
 		animator = GetComponent<Animator>();
 		boxCollider = GetComponent<BoxCollider2D>();
 
-		gameManager = FindObjectOfType<GameManager>();
-		gameManager.controls.Player.JumpPress.performed += context => JumpPressed();
-		gameManager.controls.Player.JumpRelease.performed += context => JumpReleased();
+		GameManager.controls.Player.JumpPress.performed += context => JumpPressed();
+		GameManager.controls.Player.JumpRelease.performed += context => JumpReleased();
 	}
 
 	private void JumpPressed() 
@@ -101,7 +99,7 @@ public class PlayerPlatformerController : PhysicsObject
 	private void Flip()
 	{
 		// by default, the GameObject can still be flipped even when the game is paused
-		if (!gameManager.paused)
+		if (!GameManager.Paused)
 		{
 			transform.rotation = Quaternion.Euler(0.0f, isFlipped ? 0.0f : 180.0f, 0.0f);
 			isFlipped = !isFlipped;
@@ -110,7 +108,7 @@ public class PlayerPlatformerController : PhysicsObject
 
 	protected override void ComputeVelocity()
 	{
-		float verticalMovement = gameManager.controls.Player.Climb.ReadValue<float>();
+		float verticalMovement = GameManager.controls.Player.Climb.ReadValue<float>();
 
 		if (attachedToLadder)
 		{
@@ -128,7 +126,7 @@ public class PlayerPlatformerController : PhysicsObject
 			}
 			else
 			{
-				targetVelocity = Move(gameManager.controls.Player.Move.ReadValue<float>());
+				targetVelocity = Move(GameManager.controls.Player.Move.ReadValue<float>());
 			}
 		}
 

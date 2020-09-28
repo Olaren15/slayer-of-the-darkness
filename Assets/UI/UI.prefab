@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 4758472461425216036}
   - component: {fileID: 4758472461425216034}
   - component: {fileID: 4758472461425216037}
-  - component: {fileID: 519234897}
+  - component: {fileID: 7935239684130644773}
   m_Layer: 5
   m_Name: Pause Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4758472461425216036
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 4758472461425216039}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4758472462242779382}
   - {fileID: 4758472462493783605}
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &519234897
+--- !u!114 &7935239684130644773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -285,7 +285,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4758472462242779380}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7935239684130644773}
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4758472462284178079
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,7 +493,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4758472462493783603}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7935239684130644773}
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4758472462789849307
 GameObject:
   m_ObjectHideFlags: 0
