@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerSounds : MonoBehaviour
 {
@@ -8,16 +6,17 @@ public class PlayerSounds : MonoBehaviour
     public SoundEffect footstep2;
 
     private SFXPlayer sfxPlayer;
-    private bool playFoot1 = true;
+    private bool alternateSound = true;
+    
     private void Start()
     {
-        sfxPlayer = GameObject.FindObjectOfType<SFXPlayer>();
+        sfxPlayer = FindObjectOfType<SFXPlayer>();
     }
 
     public void PlayFootstep()
     {
-        sfxPlayer.PlaySound(playFoot1 ? footstep1 : footstep2);
-        playFoot1 = !playFoot1;
+        sfxPlayer.PlaySound(alternateSound ? footstep1 : footstep2);
+        alternateSound = !alternateSound;
     }
 
     public void PlayJump()

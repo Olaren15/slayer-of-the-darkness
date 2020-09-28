@@ -122,15 +122,14 @@ public class PlayerPlatformerController : PhysicsObject
 		}
 		else
 		{
-			if (isOnLadder)
+			if (isOnLadder && Mathf.Abs(verticalMovement) > ladderGrabDeadZone)
 			{
-				if (Mathf.Abs(verticalMovement) > ladderGrabDeadZone)
-				{
 					AttachToLadder();
-				}
 			}
-			
-			targetVelocity = Move(gameManager.controls.Player.Move.ReadValue<float>());
+			else
+			{
+				targetVelocity = Move(gameManager.controls.Player.Move.ReadValue<float>());
+			}
 		}
 
 		animator.SetBool(AttachedToLadder, attachedToLadder);

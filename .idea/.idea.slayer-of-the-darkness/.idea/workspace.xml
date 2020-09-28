@@ -20,19 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4df57bdc-342d-463c-ab54-104a7fd5f758" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Camera/Main Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera/Main Camera.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/UI.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Utilities/Input/Controls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Utilities/Input/Controls.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Utilities/Input/Controls.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Utilities/Input/Controls.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerSounds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerSounds.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Utilities/SFXPlayer/Scripts/SFXPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Utilities/SFXPlayer/Scripts/SFXPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Utilities/SFXPlayer/Scripts/SoundEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Utilities/SFXPlayer/Scripts/SoundEffect.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,23 +36,27 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Utilities/GameManager/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Utilities/SFXPlayer/Scripts/SFXPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.0/InputSystem/Plugins/UI/InputSystemUIInputModule.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Utilities/SFXPlayer/Scripts/SFXPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Utilities/SFXPlayer/Scripts/SoundEffect.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerSounds.cs" />
         <option value="$PROJECT_DIR$/Assets/Camera/Scripts/FollowPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Utilities/PauseMenu/Scripts/PauseMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Scripts/PhysicsObject.cs" />
         <option value="$PROJECT_DIR$/Packages/com.unity.2d.tilemap.extras/Runtime/Tiles/RuleTile/RuleTile.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Utilities/GameManager/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Utilities/SFXPlayer/Scripts/SFXPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerSounds.cs" />
+        <option value="$PROJECT_DIR$/Assets/Utilities/SFXPlayer/Scripts/SoundEffect.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" />
       </list>
     </option>
   </component>
@@ -102,10 +98,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="23820">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="23820" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -125,7 +121,7 @@
       <workItem from="1600896779463" duration="74000" />
       <workItem from="1600897060268" duration="6193000" />
       <workItem from="1601302350771" duration="15901000" />
-      <workItem from="1601323341384" duration="5535000" />
+      <workItem from="1601323341384" duration="6944000" />
     </task>
     <servers />
   </component>
@@ -150,6 +146,38 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state width="2517" height="379" key="GridCell.Tab.0.bottom" timestamp="1601330082972">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state width="2517" height="379" key="GridCell.Tab.0.bottom/0.0.2560.1050@0.0.2560.1050" timestamp="1601330082972" />
+    <state width="2517" height="379" key="GridCell.Tab.0.center" timestamp="1601330082971">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state width="2517" height="379" key="GridCell.Tab.0.center/0.0.2560.1050@0.0.2560.1050" timestamp="1601330082971" />
+    <state width="2517" height="379" key="GridCell.Tab.0.left" timestamp="1601330082971">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state width="2517" height="379" key="GridCell.Tab.0.left/0.0.2560.1050@0.0.2560.1050" timestamp="1601330082971" />
+    <state width="2517" height="379" key="GridCell.Tab.0.right" timestamp="1601330082971">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state width="2517" height="379" key="GridCell.Tab.0.right/0.0.2560.1050@0.0.2560.1050" timestamp="1601330082971" />
+    <state width="2517" height="379" key="GridCell.Tab.1.bottom" timestamp="1601330089899">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state width="2517" height="379" key="GridCell.Tab.1.bottom/0.0.2560.1050@0.0.2560.1050" timestamp="1601330089899" />
+    <state width="2517" height="379" key="GridCell.Tab.1.center" timestamp="1601330089898">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state width="2517" height="379" key="GridCell.Tab.1.center/0.0.2560.1050@0.0.2560.1050" timestamp="1601330089898" />
+    <state width="2517" height="379" key="GridCell.Tab.1.left" timestamp="1601330089898">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state width="2517" height="379" key="GridCell.Tab.1.left/0.0.2560.1050@0.0.2560.1050" timestamp="1601330089898" />
+    <state width="2517" height="379" key="GridCell.Tab.1.right" timestamp="1601330089899">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state width="2517" height="379" key="GridCell.Tab.1.right/0.0.2560.1050@0.0.2560.1050" timestamp="1601330089899" />
     <state x="1054" y="185" key="SettingsEditor" timestamp="1600900642757">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>

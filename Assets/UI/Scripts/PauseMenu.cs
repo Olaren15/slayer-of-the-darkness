@@ -17,7 +17,7 @@ public class PauseMenu : MonoBehaviour
 		
 		// register click events
 		resumeButton.GetComponent<Button>().onClick.AddListener(gameManager.Resume);
-		transform.Find("Quit Button").gameObject.GetComponent<Button>().onClick.AddListener(gameManager.Quit);
+		transform.Find("Quit Button").GetComponent<Button>().onClick.AddListener(gameManager.Quit);
 	}
 
 	public void Show()
