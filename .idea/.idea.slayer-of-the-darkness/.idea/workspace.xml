@@ -21,8 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4df57bdc-342d-463c-ab54-104a7fd5f758" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Animations/Climbing.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Animations/Climbing.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Animations/PlayerAnimatorController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Animations/PlayerAnimatorController.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External/Cainos/Pixel Art Platformer - Village Props/Texture/LadderRuleTile.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External/Cainos/Pixel Art Platformer - Village Props/Texture/LadderRuleTile.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" afterDir="false" />
     </list>
@@ -46,6 +46,7 @@
         <option value="$PROJECT_DIR$/Assets/Camera/Scripts/FollowPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Utilities/PauseMenu/Scripts/PauseMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Scripts/PhysicsObject.cs" />
+        <option value="$PROJECT_DIR$/Packages/com.unity.2d.tilemap.extras/Runtime/Tiles/RuleTile/RuleTile.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" />
       </list>
     </option>
@@ -110,7 +111,7 @@
       <workItem from="1600829456867" duration="6663000" />
       <workItem from="1600896779463" duration="74000" />
       <workItem from="1600897060268" duration="6193000" />
-      <workItem from="1601302350771" duration="14141000" />
+      <workItem from="1601302350771" duration="15901000" />
     </task>
     <servers />
   </component>

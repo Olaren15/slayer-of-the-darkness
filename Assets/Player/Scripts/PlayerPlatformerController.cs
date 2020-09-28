@@ -109,45 +109,26 @@ public class PlayerPlatformerController : PhysicsObject
 	{
 		float verticalMovement = controls.Player.Climb.ReadValue<float>();
 
-		if (isOnLadder)
+		if (attachedToLadder)
 		{
-			if (Mathf.Abs(verticalMovement) > ladderGrabDeadZone)
+			rb2d.position += new Vector2
 			{
-					AttachToLadder();
-					rb2d.position += new Vector2
-					{
-							x = 0.0f, 
-							y = verticalMovement * climbSpeed * Time.deltaTime
-					};
-			}
+				x = 0.0f, 
+				y = verticalMovement * climbSpeed * Time.deltaTime
+			};
 		}
-
-		if (!attachedToLadder)
+		else
 		{
+			if (isOnLadder)
+			{
+				if (Mathf.Abs(verticalMovement) > ladderGrabDeadZone)
+				{
+					AttachToLadder();
+				}
+			}
+			
 			targetVelocity = Move(controls.Player.Move.ReadValue<float>());
 		}
-
-
-		// if (attachedToLadder)
-		// {
-		// 	rb2d.position += new Vector2
-		// 	{
-		// 		x = 0.0f, 
-		// 		y = verticalMovement * climbSpeed * Time.deltaTime
-		// 	};
-		// }
-		// else
-		// {
-		// 	if (isOnLadder)
-		// 	{
-		// 		if (Mathf.Abs(verticalMovement) > ladderGrabDeadZone)
-		// 		{
-		// 			AttachToLadder();
-		// 		}
-		// 	}
-		// 	
-		// 	targetVelocity = Move(controls.Player.Move.ReadValue<float>());
-		// }
 
 		animator.SetBool(AttachedToLadder, attachedToLadder);
 		animator.SetFloat(VerticalMovement, Mathf.Abs(verticalMovement));
@@ -170,7 +151,6 @@ public class PlayerPlatformerController : PhysicsObject
 		if (other.gameObject.CompareTag("Ladder"))
 		{
 			isOnLadder = false;
-			DetachFromLadder();
 		}
 	}
 }
