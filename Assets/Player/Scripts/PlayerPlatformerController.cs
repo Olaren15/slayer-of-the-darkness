@@ -8,8 +8,8 @@ public class PlayerPlatformerController : PhysicsObject
 	public float climbSpeed = 5.0f;
 
 	private Animator animator;
-	private Controls controls;
 	private BoxCollider2D boxCollider;
+	private GameManager gameManager;
 	
 	private bool isFlipped;
 	private bool isOnLadder;
@@ -27,15 +27,14 @@ public class PlayerPlatformerController : PhysicsObject
 	private static readonly Vector2 NormalColliderOffset = new Vector2(-0.0625f, 0.6871f);
 	private static readonly Vector2 NormalColliderSize = new Vector2(0.8131f, 1.2515f);
 
-	private void Awake()
+	private void Start()
 	{
 		animator = GetComponent<Animator>();
 		boxCollider = GetComponent<BoxCollider2D>();
-		
-		controls = new Controls();
-		controls.Enable();
-		controls.Player.JumpPress.performed += context => JumpPressed();
-		controls.Player.JumpRelease.performed += context => JumpReleased();
+
+		gameManager = FindObjectOfType<GameManager>();
+		gameManager.controls.Player.JumpPress.performed += context => JumpPressed();
+		gameManager.controls.Player.JumpRelease.performed += context => JumpReleased();
 	}
 
 	private void JumpPressed() 
@@ -101,13 +100,17 @@ public class PlayerPlatformerController : PhysicsObject
 
 	private void Flip()
 	{
-		transform.rotation = Quaternion.Euler(0.0f, isFlipped ? 0.0f : 180.0f, 0.0f);
-		isFlipped = !isFlipped;
+		// by default, the GameObject can still be flipped even when the game is paused
+		if (!gameManager.paused)
+		{
+			transform.rotation = Quaternion.Euler(0.0f, isFlipped ? 0.0f : 180.0f, 0.0f);
+			isFlipped = !isFlipped;
+		}
 	}
 
 	protected override void ComputeVelocity()
 	{
-		float verticalMovement = controls.Player.Climb.ReadValue<float>();
+		float verticalMovement = gameManager.controls.Player.Climb.ReadValue<float>();
 
 		if (attachedToLadder)
 		{
@@ -127,7 +130,7 @@ public class PlayerPlatformerController : PhysicsObject
 				}
 			}
 			
-			targetVelocity = Move(controls.Player.Move.ReadValue<float>());
+			targetVelocity = Move(gameManager.controls.Player.Move.ReadValue<float>());
 		}
 
 		animator.SetBool(AttachedToLadder, attachedToLadder);

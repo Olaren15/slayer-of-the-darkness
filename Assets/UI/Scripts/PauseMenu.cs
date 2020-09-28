@@ -1,43 +1,33 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    public bool paused;
-    public GameObject pauseMenuUI;
+	private EventSystem eventSystem;
+	private GameObject resumeButton;
+	private GameManager gameManager;
 
-    private Controls controls;
+	public void Awake()
+	{
+		gameManager = FindObjectOfType<GameManager>();
+		
+		eventSystem = transform.parent.GetComponent<EventSystem>();
+		resumeButton = transform.Find("Resume Button").gameObject;
+		
+		// register click events
+		resumeButton.GetComponent<Button>().onClick.AddListener(gameManager.Resume);
+		transform.Find("Quit Button").gameObject.GetComponent<Button>().onClick.AddListener(gameManager.Quit);
+	}
 
-    private void Awake()
-    {
-        controls = new Controls();
-        controls.Enable();
-        controls.Interface.Pause.performed += context => TogglePauseMenu();
-    }
+	public void Show()
+	{
+		gameObject.SetActive(true);
+		eventSystem.SetSelectedGameObject(resumeButton);
+	}
 
-    private void TogglePauseMenu()
-    {
-        if (paused)
-        {
-            Resume();
-        }
-        else
-        {
-            Pause();
-        }
-    }
-
-    public void Resume()
-    {
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1.0f;
-        paused = false;
-    }
-
-    public void Pause()
-    {
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0.0f;
-        paused = true;
-    }
+	public void Hide()
+	{
+		gameObject.SetActive(false);
+	}
 }

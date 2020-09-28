@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4758472461425216036}
   - component: {fileID: 4758472461425216034}
   - component: {fileID: 4758472461425216037}
+  - component: {fileID: 519234897}
   m_Layer: 5
   m_Name: Pause Menu
   m_TagString: Untagged
@@ -76,6 +77,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &519234897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4758472461425216039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c83b877e8e38874798dc2b9412be7ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4758472461597024480
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 2
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -272,18 +285,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4758472462242779380}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4758472462789849316}
-        m_MethodName: Resume
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &4758472462284178079
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 2
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -493,7 +495,8 @@ GameObject:
   - component: {fileID: 4758472462789849318}
   - component: {fileID: 4758472462789849305}
   - component: {fileID: 4758472462789849304}
-  - component: {fileID: 4758472462789849316}
+  - component: {fileID: 1205128185}
+  - component: {fileID: 1205128186}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -581,7 +584,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4758472462789849316
+--- !u!114 &1205128185
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -590,8 +593,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 4758472462789849307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff52ac023f2264f4292ec817a2f895f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paused: 0
-  pauseMenuUI: {fileID: 4758472461425216039}
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 7da8a9b57a81ceb4089560c5c028e011,
+    type: 3}
+  m_PointAction: {fileID: 346921974607797972, guid: 7da8a9b57a81ceb4089560c5c028e011,
+    type: 3}
+  m_MoveAction: {fileID: 1494412483977169629, guid: 7da8a9b57a81ceb4089560c5c028e011,
+    type: 3}
+  m_SubmitAction: {fileID: 1961283408212524166, guid: 7da8a9b57a81ceb4089560c5c028e011,
+    type: 3}
+  m_CancelAction: {fileID: 3592921099711740808, guid: 7da8a9b57a81ceb4089560c5c028e011,
+    type: 3}
+  m_LeftClickAction: {fileID: -7547621513781756947, guid: 7da8a9b57a81ceb4089560c5c028e011,
+    type: 3}
+  m_MiddleClickAction: {fileID: -2018478489727390043, guid: 7da8a9b57a81ceb4089560c5c028e011,
+    type: 3}
+  m_RightClickAction: {fileID: 6877207797382515851, guid: 7da8a9b57a81ceb4089560c5c028e011,
+    type: 3}
+  m_ScrollWheelAction: {fileID: 3999606168454805106, guid: 7da8a9b57a81ceb4089560c5c028e011,
+    type: 3}
+  m_TrackedDevicePositionAction: {fileID: -6570249183780036530, guid: 7da8a9b57a81ceb4089560c5c028e011,
+    type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: -7731009928201461014, guid: 7da8a9b57a81ceb4089560c5c028e011,
+    type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+--- !u!114 &1205128186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4758472462789849307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
