@@ -16,12 +16,12 @@ public class GameManager : MonoBehaviour
 
 	private void Update()
 	{
-		if (Gamepad.current.wasUpdatedThisFrame)
+		if (Gamepad.current?.wasUpdatedThisFrame == true)
 		{
 			hideCursor = true;
 		}
 
-		if (Keyboard.current.wasUpdatedThisFrame || Mouse.current.wasUpdatedThisFrame)
+		if (Keyboard.current?.wasUpdatedThisFrame == true || Mouse.current?.wasUpdatedThisFrame == true)
 		{
 			hideCursor = false;
 		}

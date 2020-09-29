@@ -19,10 +19,6 @@ public class PhysicsObject : MonoBehaviour
 	protected bool grounded;
 	protected bool disableGravity = false;
 
-	public PhysicsObject()
-	{
-	}
-
 	private void OnEnable()
 	{
 		rb2d = GetComponent<Rigidbody2D>();
@@ -56,11 +52,15 @@ public class PhysicsObject : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		velocity += Physics2D.gravity * (gravityModifier * Time.deltaTime);
 		if (disableGravity)
 		{
-			velocity.y = 0.0f;
+			velocity.y = targetVelocity.y;
 		}
+		else
+		{
+			velocity += Physics2D.gravity * (gravityModifier * Time.deltaTime);
+		}
+		
 		velocity.x = targetVelocity.x;
 		grounded = false;
 

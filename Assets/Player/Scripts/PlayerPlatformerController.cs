@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 public class PlayerPlatformerController : PhysicsObject
 {
@@ -9,9 +11,11 @@ public class PlayerPlatformerController : PhysicsObject
 
 	private Animator animator;
 	private BoxCollider2D boxCollider;
-	
+
+	private ContactFilter2D ladderContactFilter;
+	private readonly List<RaycastHit2D> ladderOverlaps = new List<RaycastHit2D>();
+
 	private bool isFlipped;
-	private bool isOnLadder;
 	private bool attachedToLadder;
 	private float lastLadderXPosition;
 
@@ -25,23 +29,26 @@ public class PlayerPlatformerController : PhysicsObject
 	private static readonly Vector2 ClimbingColliderSize = new Vector2(0.5331f, 1.2515f);
 	private static readonly Vector2 NormalColliderOffset = new Vector2(-0.0625f, 0.6871f);
 	private static readonly Vector2 NormalColliderSize = new Vector2(0.8131f, 1.2515f);
-
+	
 	private void Start()
 	{
 		animator = GetComponent<Animator>();
 		boxCollider = GetComponent<BoxCollider2D>();
-
+		ladderContactFilter.useTriggers = true;
+		ladderContactFilter.useLayerMask = false;
+		ladderContactFilter.layerMask = Physics2D.GetLayerCollisionMask(LayerMask.NameToLayer("Ladders"));
+		
 		GameManager.controls.Player.JumpPress.performed += context => JumpPressed();
 		GameManager.controls.Player.JumpRelease.performed += context => JumpReleased();
 	}
 
-	private void JumpPressed() 
+	private void JumpPressed()
 	{
 		if (attachedToLadder)
 		{
 			DetachFromLadder();
 		}
-		
+
 		if (grounded)
 		{
 			velocity.y = jumpTakeOffSpeed;
@@ -56,17 +63,6 @@ public class PlayerPlatformerController : PhysicsObject
 		}
 	}
 
-	private Vector2 Move(float inputX)
-	{
-		bool needToFlip = isFlipped ? inputX > 0.0f : inputX < 0.0f;
-		if (needToFlip)
-		{
-			Flip();
-		}
-		
-		return new Vector2(inputX * maxSpeed, 0.0f);
-	}
-
 	private void DetachFromLadder()
 	{
 		attachedToLadder = false;
@@ -78,11 +74,7 @@ public class PlayerPlatformerController : PhysicsObject
 
 	private void AttachToLadder()
 	{
-		rb2d.position = new Vector2
-		{
-			x = lastLadderXPosition,
-			y = rb2d.position.y
-		};
+		rb2d.position = new Vector2 {x = lastLadderXPosition, y = rb2d.position.y};
 
 		boxCollider.offset = ClimbingColliderOffset;
 		boxCollider.size = ClimbingColliderSize;
@@ -104,49 +96,67 @@ public class PlayerPlatformerController : PhysicsObject
 
 	protected override void ComputeVelocity()
 	{
-		float verticalMovement = GameManager.controls.Player.Climb.ReadValue<float>();
+		UpdateLadderAttachment();
+		targetVelocity = attachedToLadder ? LadderMovement() : GroundMovement();
+		UpdateAnimatorVariables();
+	}
 
-		if (attachedToLadder)
+	private Vector2 LadderMovement()
+	{
+		return new Vector2
 		{
-			rb2d.position += new Vector2
+			x = 0.0f,
+			y = GameManager.controls.Player.Climb.ReadValue<float>() * climbSpeed
+		};
+	}
+
+	private Vector2 GroundMovement()
+	{
+		float inputX = GameManager.controls.Player.Move.ReadValue<float>();
+		
+		bool needToFlip = isFlipped ? inputX > 0.0f : inputX < 0.0f;
+		if (needToFlip)
+		{
+			Flip();
+		}
+
+		return new Vector2(inputX * maxSpeed, 0.0f);
+	}
+	
+	private void UpdateLadderAttachment()
+	{
+		if (IsOnLadder())
+		{
+			if (Mathf.Abs(GameManager.controls.Player.Climb.ReadValue<float>()) > ladderGrabDeadZone)
 			{
-				x = 0.0f, 
-				y = verticalMovement * climbSpeed * Time.deltaTime
-			};
+				AttachToLadder();
+			}
 		}
 		else
 		{
-			if (isOnLadder && Mathf.Abs(verticalMovement) > ladderGrabDeadZone)
-			{
-					AttachToLadder();
-			}
-			else
-			{
-				targetVelocity = Move(GameManager.controls.Player.Move.ReadValue<float>());
-			}
+			DetachFromLadder();
 		}
+	}
 
+	private bool IsOnLadder()
+	{
+		rb2d.Cast(Vector2.zero, ladderContactFilter, ladderOverlaps, 0.0f);
+		return ladderOverlaps.Any();
+	}
+
+	private void UpdateAnimatorVariables()
+	{
 		animator.SetBool(AttachedToLadder, attachedToLadder);
-		animator.SetFloat(VerticalMovement, Mathf.Abs(verticalMovement));
 		animator.SetBool(Grounded, grounded);
 		animator.SetFloat(VelocityX, Mathf.Abs(velocity.x) / maxSpeed);
 		animator.SetFloat(VelocityY, velocity.y);
 	}
-
+	
 	private void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.gameObject.CompareTag("Ladder"))
 		{
-			isOnLadder = true;
 			lastLadderXPosition = other.bounds.center.x - 0.2f;
-		}
-	}
-
-	private void OnTriggerExit2D(Collider2D other)
-	{
-		if (other.gameObject.CompareTag("Ladder"))
-		{
-			isOnLadder = false;
 		}
 	}
 }
