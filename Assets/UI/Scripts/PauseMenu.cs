@@ -3,13 +3,15 @@ using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
+	public GameObject defaultSelection;
+
 	private EventSystem eventSystem;
-	private GameObject resumeButton;
+	private CanvasGroup canvasGroup;
 
 	private void Start()
 	{
 		eventSystem = GetComponentInParent<EventSystem>();
-		resumeButton = transform.Find("Resume Button").gameObject;
+		canvasGroup = GetComponent<CanvasGroup>();
 
 		GameManager.controls.Interface.Pause.performed += context => TogglePauseMenu();
 	}
@@ -28,15 +30,15 @@ public class PauseMenu : MonoBehaviour
 
 	private void Show()
 	{
-		transform.localScale = new Vector3(1, 1, 1);
-		eventSystem.SetSelectedGameObject(resumeButton);
-		
+		canvasGroup.alpha = 1.0f;
+		eventSystem.SetSelectedGameObject(defaultSelection);
 		GameManager.Pause();
 	}
 
 	public void Hide()
 	{
-		transform.localScale = new Vector3(0, 0, 0);
+		canvasGroup.alpha = 0.0f;
+		eventSystem.SetSelectedGameObject(null);
 		GameManager.Resume();
 	}
 

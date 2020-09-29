@@ -5340,50 +5340,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4758472461425216036, guid: 5a9d4c8761caae64184d148aea9e588b,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4758472461425216036, guid: 5a9d4c8761caae64184d148aea9e588b,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4758472461425216036, guid: 5a9d4c8761caae64184d148aea9e588b,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4758472461425216037, guid: 5a9d4c8761caae64184d148aea9e588b,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4758472461425216037, guid: 5a9d4c8761caae64184d148aea9e588b,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4758472461425216037, guid: 5a9d4c8761caae64184d148aea9e588b,
-        type: 3}
-      propertyPath: m_Maskable
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4758472461425216039, guid: 5a9d4c8761caae64184d148aea9e588b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4758472462789849307, guid: 5a9d4c8761caae64184d148aea9e588b,
         type: 3}
       propertyPath: m_Name
       value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 4758472462789849318, guid: 5a9d4c8761caae64184d148aea9e588b,
-        type: 3}
-      propertyPath: m_PixelPerfect
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4758472462789849319, guid: 5a9d4c8761caae64184d148aea9e588b,
         type: 3}
