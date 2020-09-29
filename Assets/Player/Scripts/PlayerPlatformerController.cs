@@ -20,7 +20,6 @@ public class PlayerPlatformerController : PhysicsObject
 	private float lastLadderXPosition;
 
 	private static readonly int AttachedToLadder = Animator.StringToHash("attachedToLadder");
-	private static readonly int VerticalMovement = Animator.StringToHash("verticalMovement");
 	private static readonly int Grounded = Animator.StringToHash("grounded");
 	private static readonly int VelocityX = Animator.StringToHash("velocityX");
 	private static readonly int VelocityY = Animator.StringToHash("velocityY");

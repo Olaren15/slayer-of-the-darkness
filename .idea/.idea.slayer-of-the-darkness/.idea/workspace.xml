@@ -22,11 +22,6 @@
     <list default="true" id="4df57bdc-342d-463c-ab54-104a7fd5f758" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/PhysicsObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/PhysicsObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Props/Ladder/Ladder.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Props/Ladder/Ladder.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Utilities/GameManager/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Utilities/GameManager/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,8 +51,8 @@
         <option value="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Camera/Scripts/FollowTarget.cs" />
         <option value="$PROJECT_DIR$/Assets/Utilities/GameManager/Scripts/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/Scripts/PhysicsObject.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/Scripts/PhysicsObject.cs" />
       </list>
     </option>
   </component>
@@ -126,7 +121,7 @@
       <workItem from="1601302350771" duration="15901000" />
       <workItem from="1601323341384" duration="11694000" />
       <workItem from="1601344185160" duration="4394000" />
-      <workItem from="1601401056137" duration="6730000" />
+      <workItem from="1601401056137" duration="8344000" />
     </task>
     <servers />
   </component>
