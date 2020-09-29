@@ -11,7 +11,7 @@ public class PlayerSounds : MonoBehaviour
     private bool playFoot1 = true;
     private void Start()
     {
-        sfxPlayer = GameObject.FindObjectOfType<SFXPlayer>();
+        sfxPlayer = gameObject.transform.Find("SFXPlayer").gameObject.GetComponent<SFXPlayer>();
     }
 
     public void PlayFootstep()

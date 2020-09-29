@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerPlatformerController : PhysicsObject
+public class PlayerPlatformerController : PhysicsObject, IDamageable
 {
 	public float jumpTakeOffSpeed = 10;
 	public float maxSpeed = 7;
@@ -9,12 +9,15 @@ public class PlayerPlatformerController : PhysicsObject
 	private Animator animator;
 	private SpriteRenderer spriteRenderer;
 	private Controls controls;
-	private Collider2D collider;
+	private new Collider2D collider;
 	private bool isFlipped;
 	
 	public Transform attackPoint;
 	public float attackRange;
 	public LayerMask enemyLayer;
+
+	public int life = 3;
+	public int attackDamage = 1;
 
 	private static readonly int GroundedParameter = Animator.StringToHash("grounded");
 	private static readonly int VelocityXParameter = Animator.StringToHash("velocityX");
@@ -63,7 +66,12 @@ public class PlayerPlatformerController : PhysicsObject
 
         foreach (Collider2D enemy in hitEnemies)
         {
-			Debug.Log("We hit " + enemy.name);
+			var damageableEnemy = enemy.GetComponent<IDamageable>();
+			if (damageableEnemy != null)
+            {
+				damageableEnemy.TakeDamage(attackDamage);
+			}
+				
         }
 	}
 
@@ -107,4 +115,26 @@ public class PlayerPlatformerController : PhysicsObject
 
 		Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
+
+    public void TakeDamage(int damage)
+    {
+		life -= damage;
+
+		if (life <= 0)
+        {
+			Die();
+		}
+		else
+		{
+			animator.SetTrigger("takeDamage");
+		}
+    }
+
+	private void Die()
+    {
+		animator.SetTrigger("die");
+
+
+		spriteRenderer.enabled = false;
+	}
 }
