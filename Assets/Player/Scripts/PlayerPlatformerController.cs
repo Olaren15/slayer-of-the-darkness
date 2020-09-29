@@ -98,12 +98,8 @@ public class PlayerPlatformerController : PhysicsObject
 
 	private void Flip()
 	{
-		// by default, the GameObject can still be flipped even when the game is paused
-		if (!GameManager.Paused)
-		{
-			transform.rotation = Quaternion.Euler(0.0f, isFlipped ? 0.0f : 180.0f, 0.0f);
-			isFlipped = !isFlipped;
-		}
+		transform.rotation = Quaternion.Euler(0.0f, isFlipped ? 0.0f : 180.0f, 0.0f);
+		isFlipped = !isFlipped;
 	}
 
 	protected override void ComputeVelocity()

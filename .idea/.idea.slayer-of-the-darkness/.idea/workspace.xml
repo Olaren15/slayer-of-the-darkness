@@ -21,7 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4df57bdc-342d-463c-ab54-104a7fd5f758" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Camera/Scripts/FollowTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera/Scripts/FollowTarget.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Utilities/GameManager/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Utilities/GameManager/Scripts/GameManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,10 +48,10 @@
         <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerSounds.cs" />
         <option value="$PROJECT_DIR$/Assets/Utilities/SFXPlayer/Scripts/SoundEffect.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Scripts/PhysicsObject.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Utilities/GameManager/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Camera/Scripts/FollowTarget.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Utilities/GameManager/Scripts/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -94,10 +95,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="22168">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="22168" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -118,7 +119,7 @@
       <workItem from="1600897060268" duration="6193000" />
       <workItem from="1601302350771" duration="15901000" />
       <workItem from="1601323341384" duration="11694000" />
-      <workItem from="1601344185160" duration="958000" />
+      <workItem from="1601344185160" duration="4394000" />
     </task>
     <servers />
   </component>
@@ -143,22 +144,22 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="2517" height="184" key="GridCell.Tab.0.bottom" timestamp="1601343668273">
+    <state width="2517" height="184" key="GridCell.Tab.0.bottom" timestamp="1601349181112">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state width="2517" height="184" key="GridCell.Tab.0.bottom/0.0.2560.1050@0.0.2560.1050" timestamp="1601343668273" />
-    <state width="2517" height="184" key="GridCell.Tab.0.center" timestamp="1601343668273">
+    <state width="2517" height="184" key="GridCell.Tab.0.bottom/0.0.2560.1050@0.0.2560.1050" timestamp="1601349181112" />
+    <state width="2517" height="184" key="GridCell.Tab.0.center" timestamp="1601349181112">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state width="2517" height="184" key="GridCell.Tab.0.center/0.0.2560.1050@0.0.2560.1050" timestamp="1601343668273" />
-    <state width="2517" height="184" key="GridCell.Tab.0.left" timestamp="1601343668272">
+    <state width="2517" height="184" key="GridCell.Tab.0.center/0.0.2560.1050@0.0.2560.1050" timestamp="1601349181112" />
+    <state width="2517" height="184" key="GridCell.Tab.0.left" timestamp="1601349181112">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state width="2517" height="184" key="GridCell.Tab.0.left/0.0.2560.1050@0.0.2560.1050" timestamp="1601343668272" />
-    <state width="2517" height="184" key="GridCell.Tab.0.right" timestamp="1601343668273">
+    <state width="2517" height="184" key="GridCell.Tab.0.left/0.0.2560.1050@0.0.2560.1050" timestamp="1601349181112" />
+    <state width="2517" height="184" key="GridCell.Tab.0.right" timestamp="1601349181112">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
-    <state width="2517" height="184" key="GridCell.Tab.0.right/0.0.2560.1050@0.0.2560.1050" timestamp="1601343668273" />
+    <state width="2517" height="184" key="GridCell.Tab.0.right/0.0.2560.1050@0.0.2560.1050" timestamp="1601349181112" />
     <state width="2517" height="184" key="GridCell.Tab.1.bottom" timestamp="1601343668273">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
