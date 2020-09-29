@@ -2,6 +2,7 @@
 
 public class FollowTarget : MonoBehaviour
 {
+    [Range(1.0f, 25.0f)]
     public float followSpeed = 10.0f;
     public float minDistance = 0.25f;
     [Range(0.001f, 1.0f)]

@@ -21,9 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4df57bdc-342d-463c-ab54-104a7fd5f758" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/UI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Camera/Scripts/FollowTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera/Scripts/FollowTarget.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +50,7 @@
         <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Utilities/GameManager/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Camera/Scripts/FollowTarget.cs" />
       </list>
     </option>
   </component>
@@ -119,7 +118,7 @@
       <workItem from="1600897060268" duration="6193000" />
       <workItem from="1601302350771" duration="15901000" />
       <workItem from="1601323341384" duration="11694000" />
-      <workItem from="1601344185160" duration="305000" />
+      <workItem from="1601344185160" duration="958000" />
     </task>
     <servers />
   </component>
