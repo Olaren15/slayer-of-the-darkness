@@ -5597,16 +5597,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8485459275211454402, guid: 5e9cbeb6c84db54449a29f075bdbc97f,
-        type: 3}
-      propertyPath: jumpTakeOffSpeed
-      value: 11.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8485459275211454402, guid: 5e9cbeb6c84db54449a29f075bdbc97f,
-        type: 3}
-      propertyPath: gravityModifier
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8485459275211454403, guid: 5e9cbeb6c84db54449a29f075bdbc97f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5661,16 +5651,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8485459275211454413, guid: 5e9cbeb6c84db54449a29f075bdbc97f,
-        type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8485459275211454414, guid: 5e9cbeb6c84db54449a29f075bdbc97f,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8485459275211454415, guid: 5e9cbeb6c84db54449a29f075bdbc97f,
         type: 3}

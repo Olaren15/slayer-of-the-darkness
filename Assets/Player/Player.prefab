@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityModifier: 1
   minGroundNormalY: 0.65
-  jumpTakeOffSpeed: 10
+  jumpTakeOffSpeed: 11.5
   maxSpeed: 7
   ladderGrabDeadZone: 0.3
   climbSpeed: 5
