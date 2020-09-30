@@ -25,9 +25,9 @@ public class FollowTarget : MonoBehaviour
 	{
 		Vector3 cameraPosition = transform.position;
 
-		Vector3 targetDirection = target.transform.position - cameraPosition;
+		Vector3 targetDirection = target.transform.position - cameraPosition + offset;
 		float velocity = targetDirection.magnitude <= minDistance ? 0.0f : targetDirection.magnitude * followSpeed;
-		Vector3 targetPos = cameraPosition + offset + targetDirection.normalized * (velocity * Time.deltaTime);
+		Vector3 targetPos = cameraPosition + targetDirection.normalized * (velocity * Time.deltaTime);
 
 		transform.position = Vector3.Lerp(cameraPosition, targetPos, stiffnessFactor);
 	}
