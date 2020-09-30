@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour
 
 		GameManager.controls.Interface.Pause.performed += context => TogglePauseMenu();
 	}
-	
+
 	private void TogglePauseMenu()
 	{
 		if (GameManager.Paused)

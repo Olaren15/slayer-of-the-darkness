@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 	public static Controls controls;
 
 	private bool hideCursor;
+
 	private void Awake()
 	{
 		controls = new Controls();

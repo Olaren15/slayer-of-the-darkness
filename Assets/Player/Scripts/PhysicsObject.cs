@@ -5,10 +5,10 @@ public class PhysicsObject : MonoBehaviour
 {
 	public float gravityModifier = 1f;
 	public float minGroundNormalY = .65f;
-	
+
 	protected const float MinMoveDistance = 0.001f;
 	protected const float ShellRadius = 0.01f;
-	
+
 	protected ContactFilter2D contactFilter;
 	protected Vector2 groundNormal;
 	protected Rigidbody2D rb2d;
@@ -44,7 +44,7 @@ public class PhysicsObject : MonoBehaviour
 		{
 			rb2d.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
 		}
-		
+
 		ComputeVelocity();
 	}
 
@@ -60,7 +60,7 @@ public class PhysicsObject : MonoBehaviour
 		{
 			velocity += Physics2D.gravity * (gravityModifier * Time.deltaTime);
 		}
-		
+
 		velocity.x = targetVelocity.x;
 		grounded = false;
 
@@ -102,6 +102,7 @@ public class PhysicsObject : MonoBehaviour
 				distance = modifiedDistance < distance ? modifiedDistance : distance;
 			}
 		}
+
 		rb2d.position += move.normalized * distance;
 	}
 }
