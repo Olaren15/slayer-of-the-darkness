@@ -1,31 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerSounds : MonoBehaviour
 {
-    public SoundEffect footstep1;
-    public SoundEffect footstep2;
+	public SoundEffect footstep1;
+	public SoundEffect footstep2;
 
-    private SFXPlayer sfxPlayer;
-    private bool playFoot1 = true;
-    private void Start()
-    {
-        sfxPlayer = GameObject.FindObjectOfType<SFXPlayer>();
-    }
+	private SFXPlayer sfxPlayer;
+	private bool alternateSound = true;
 
-    public void PlayFootstep()
-    {
-        sfxPlayer.PlaySound(playFoot1 ? footstep1 : footstep2);
-        playFoot1 = !playFoot1;
-    }
+	private void Start()
+	{
+		sfxPlayer = FindObjectOfType<SFXPlayer>();
+	}
 
-    public void PlayJump()
-    {
-        sfxPlayer.PlaySound(footstep1);
-    }
+	public void PlayFootstep()
+	{
+		sfxPlayer.PlaySound(alternateSound ? footstep1 : footstep2);
+		alternateSound = !alternateSound;
+	}
 
-    public void PlayLanding() {
-        sfxPlayer.PlaySound(footstep2);
-    }
+	public void PlayJump()
+	{
+		sfxPlayer.PlaySound(footstep1);
+	}
+
+	public void PlayLanding()
+	{
+		sfxPlayer.PlaySound(footstep2);
+	}
 }

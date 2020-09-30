@@ -5,18 +5,19 @@ public class PhysicsObject : MonoBehaviour
 {
 	public float gravityModifier = 1f;
 	public float minGroundNormalY = .65f;
-	
+
 	protected const float MinMoveDistance = 0.001f;
 	protected const float ShellRadius = 0.01f;
-	
+
 	protected ContactFilter2D contactFilter;
 	protected Vector2 groundNormal;
 	protected Rigidbody2D rb2d;
-	protected readonly List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>(16);
+	protected readonly List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>();
 
 	protected Vector2 targetVelocity;
 	protected Vector2 velocity;
 	protected bool grounded;
+	protected bool disableGravity = false;
 
 	private void OnEnable()
 	{
@@ -26,13 +27,24 @@ public class PhysicsObject : MonoBehaviour
 	private void Start()
 	{
 		contactFilter.useTriggers = false;
-		contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
+		contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(LayerMask.NameToLayer("Ground")));
 		contactFilter.useLayerMask = true;
 	}
 
 	private void Update()
 	{
 		targetVelocity = Vector2.zero;
+
+		// Freeze y position when gravity is disabled
+		if (disableGravity)
+		{
+			rb2d.constraints |= RigidbodyConstraints2D.FreezePositionY;
+		}
+		else
+		{
+			rb2d.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+		}
+
 		ComputeVelocity();
 	}
 
@@ -40,7 +52,15 @@ public class PhysicsObject : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		velocity += Physics2D.gravity * (gravityModifier * Time.deltaTime);
+		if (disableGravity)
+		{
+			velocity.y = targetVelocity.y;
+		}
+		else
+		{
+			velocity += Physics2D.gravity * (gravityModifier * Time.deltaTime);
+		}
+
 		velocity.x = targetVelocity.x;
 		grounded = false;
 
