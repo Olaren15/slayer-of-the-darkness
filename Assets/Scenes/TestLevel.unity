@@ -164,8 +164,8 @@ Transform:
   - {fileID: 674643436}
   - {fileID: 911569703}
   - {fileID: 788209703}
-  - {fileID: 1440311795}
   - {fileID: 652827390}
+  - {fileID: 1440311795}
   - {fileID: 912774100}
   - {fileID: 2013942893}
   m_Father: {fileID: 0}
@@ -330,7 +330,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 340132891}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &652827391
 MonoBehaviour:
@@ -399,7 +399,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.140625, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -1874,7 +1874,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 340132891}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1440311796
 TilemapRenderer:
