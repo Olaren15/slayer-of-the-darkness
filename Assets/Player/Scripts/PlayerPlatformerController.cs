@@ -35,7 +35,7 @@ public class PlayerPlatformerController : PhysicsObject
 		boxCollider = GetComponent<BoxCollider2D>();
 		ladderContactFilter.useTriggers = true;
 		ladderContactFilter.useLayerMask = true;
-		ladderContactFilter.layerMask = Physics2D.GetLayerCollisionMask(LayerMask.NameToLayer("Ladders"));
+		ladderContactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(LayerMask.NameToLayer("Ladders")));
 
 		GameManager.controls.Player.JumpPress.performed += context => JumpPressed();
 		GameManager.controls.Player.JumpRelease.performed += context => JumpReleased();
