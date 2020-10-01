@@ -49,6 +49,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""GoDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""56aab010-e3d6-473c-8455-76e16b02500f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(pressPoint=0.2,behavior=2)""
                 }
             ],
             ""bindings"": [
@@ -249,6 +257,28 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Climb"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ff66d4a5-8d8c-4627-9374-e7276efa8c99"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""GoDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""60780695-1b7a-4b7a-a932-7bb9eee07535"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""GoDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -655,6 +685,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_JumpPress = m_Player.FindAction("JumpPress", throwIfNotFound: true);
         m_Player_JumpRelease = m_Player.FindAction("JumpRelease", throwIfNotFound: true);
         m_Player_Climb = m_Player.FindAction("Climb", throwIfNotFound: true);
+        m_Player_GoDown = m_Player.FindAction("GoDown", throwIfNotFound: true);
         // Interface
         m_Interface = asset.FindActionMap("Interface", throwIfNotFound: true);
         m_Interface_Pause = m_Interface.FindAction("Pause", throwIfNotFound: true);
@@ -719,6 +750,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_JumpPress;
     private readonly InputAction m_Player_JumpRelease;
     private readonly InputAction m_Player_Climb;
+    private readonly InputAction m_Player_GoDown;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -727,6 +759,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @JumpPress => m_Wrapper.m_Player_JumpPress;
         public InputAction @JumpRelease => m_Wrapper.m_Player_JumpRelease;
         public InputAction @Climb => m_Wrapper.m_Player_Climb;
+        public InputAction @GoDown => m_Wrapper.m_Player_GoDown;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -748,6 +781,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Climb.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClimb;
                 @Climb.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClimb;
                 @Climb.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClimb;
+                @GoDown.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGoDown;
+                @GoDown.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGoDown;
+                @GoDown.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGoDown;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -764,6 +800,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Climb.started += instance.OnClimb;
                 @Climb.performed += instance.OnClimb;
                 @Climb.canceled += instance.OnClimb;
+                @GoDown.started += instance.OnGoDown;
+                @GoDown.performed += instance.OnGoDown;
+                @GoDown.canceled += instance.OnGoDown;
             }
         }
     }
@@ -889,6 +928,7 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnJumpPress(InputAction.CallbackContext context);
         void OnJumpRelease(InputAction.CallbackContext context);
         void OnClimb(InputAction.CallbackContext context);
+        void OnGoDown(InputAction.CallbackContext context);
     }
     public interface IInterfaceActions
     {
