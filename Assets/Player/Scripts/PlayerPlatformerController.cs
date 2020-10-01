@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerPlatformerController : PhysicsObject
 {
@@ -9,7 +11,7 @@ public class PlayerPlatformerController : PhysicsObject
 
 	private Animator animator;
 	private BoxCollider2D boxCollider;
-	
+
 	private bool isFlipped;
 	private bool isOnLadder;
 	private bool attachedToLadder;
@@ -35,13 +37,15 @@ public class PlayerPlatformerController : PhysicsObject
 		GameManager.controls.Player.JumpRelease.performed += context => JumpReleased();
 	}
 
-	private void JumpPressed() 
+	private void JumpPressed()
 	{
+		StartCoroutine(JumpThroughPlatform());
+
 		if (attachedToLadder)
 		{
 			DetachFromLadder();
 		}
-		
+
 		if (grounded)
 		{
 			velocity.y = jumpTakeOffSpeed;
@@ -56,6 +60,13 @@ public class PlayerPlatformerController : PhysicsObject
 		}
 	}
 
+	private IEnumerator JumpThroughPlatform()
+	{
+		GameObject.FindGameObjectWithTag("Platform").GetComponent<TilemapCollider2D>().enabled = false;
+		yield return new WaitForSeconds(0.5f);
+		GameObject.FindGameObjectWithTag("Platform").GetComponent<TilemapCollider2D>().enabled = true;
+	}
+
 	private Vector2 Move(float inputX)
 	{
 		bool needToFlip = isFlipped ? inputX > 0.0f : inputX < 0.0f;
@@ -63,7 +74,7 @@ public class PlayerPlatformerController : PhysicsObject
 		{
 			Flip();
 		}
-		
+
 		return new Vector2(inputX * maxSpeed, 0.0f);
 	}
 
@@ -110,7 +121,7 @@ public class PlayerPlatformerController : PhysicsObject
 		{
 			rb2d.position += new Vector2
 			{
-				x = 0.0f, 
+				x = 0.0f,
 				y = verticalMovement * climbSpeed * Time.deltaTime
 			};
 		}
@@ -118,7 +129,7 @@ public class PlayerPlatformerController : PhysicsObject
 		{
 			if (isOnLadder && Mathf.Abs(verticalMovement) > ladderGrabDeadZone)
 			{
-					AttachToLadder();
+				AttachToLadder();
 			}
 			else
 			{

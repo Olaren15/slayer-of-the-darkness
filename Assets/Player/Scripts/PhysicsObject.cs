@@ -5,10 +5,10 @@ public class PhysicsObject : MonoBehaviour
 {
 	public float gravityModifier = 1f;
 	public float minGroundNormalY = .65f;
-	
+
 	protected const float MinMoveDistance = 0.001f;
 	protected const float ShellRadius = 0.01f;
-	
+
 	protected ContactFilter2D contactFilter;
 	protected Vector2 groundNormal;
 	protected Rigidbody2D rb2d;
@@ -48,11 +48,13 @@ public class PhysicsObject : MonoBehaviour
 		{
 			rb2d.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
 		}
-		
+
 		ComputeVelocity();
 	}
 
-	protected virtual void ComputeVelocity() { }
+	protected virtual void ComputeVelocity()
+	{
+	}
 
 	private void FixedUpdate()
 	{
@@ -79,6 +81,7 @@ public class PhysicsObject : MonoBehaviour
 		if (distance > MinMoveDistance)
 		{
 			rb2d.Cast(move, contactFilter, hitBufferList, distance + ShellRadius);
+
 			foreach (RaycastHit2D hit in hitBufferList)
 			{
 				Vector2 currentNormal = hit.normal;

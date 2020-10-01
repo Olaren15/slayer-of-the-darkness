@@ -36,6 +36,14 @@
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "GoDown",
+                    "type": "Button",
+                    "id": "56aab010-e3d6-473c-8455-76e16b02500f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(pressPoint=0.2,behavior=2)"
                 }
             ],
             "bindings": [
@@ -236,6 +244,28 @@
                     "action": "Climb",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "ff66d4a5-8d8c-4627-9374-e7276efa8c99",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "GoDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60780695-1b7a-4b7a-a932-7bb9eee07535",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "GoDown",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
