@@ -4,9 +4,10 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+[RequireComponent(typeof(TilemapCollider2D))]
 public class OneWayPlatform : MonoBehaviour
 {
-	public float waitTime = 0.05f;
+	public float waitTime = 0.5f;
 
 	private void Start()
 	{
