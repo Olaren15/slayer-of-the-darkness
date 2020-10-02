@@ -30,7 +30,7 @@ public class PhysicsObject : MonoBehaviour
 		contactFilter.useLayerMask = true;
 	}
 
-	private void Update()
+	protected void Update()
 	{
 		targetVelocity = Vector2.zero;
 		ComputeVelocity();

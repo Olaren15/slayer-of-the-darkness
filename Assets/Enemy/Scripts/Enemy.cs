@@ -12,6 +12,14 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public int life = 3;
     public int attackDamage = 1;
+    private bool isDead = false;
+    private bool isAttacking = false;
+    public float attackCooldown = 1.0f;
+
+    public enum AnimationEvent
+    {
+        AttackDone
+    }
 
     void Start()
     {
@@ -20,24 +28,34 @@ public class Enemy : MonoBehaviour, IDamageable
 
     void Update()
     {
-        Attack();
+        if (!isDead)
+        {
+            if (!isAttacking)
+            {
+                CheckAttack();
+            }
+        }
     }
 
-    private void Attack()
+    private void CheckAttack()
     {
-        //animator.SetTrigger("attack");
-
         Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
         foreach (Collider2D player in hitPlayers)
         {
             var damageablePlayer = player.GetComponent<IDamageable>();
-            if (damageablePlayer != null)
+            if (damageablePlayer != null && player.GetComponent<PlayerPlatformerController>().remainingImmunityTime <= 0 && !player.GetComponent<PlayerPlatformerController>().isDead)
             {
-                damageablePlayer.TakeDamage(attackDamage);
+                Attack(damageablePlayer);
             }
-
         }
+    }
+
+    private void Attack(IDamageable entity)
+    {
+        isAttacking = true;
+        animator.SetTrigger("Attack");
+        entity.TakeDamage(attackDamage);
     }
 
     private void OnDrawGizmosSelected()
@@ -64,9 +82,22 @@ public class Enemy : MonoBehaviour, IDamageable
 
     private void Die() 
     {
+        isDead = true;
         Instantiate(deathEffect, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + gameObject.transform.localScale.y), Quaternion.identity);
         animator.SetTrigger("Die");
         
         Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+    }
+
+    private void AnimationObserver(AnimationEvent e)
+    {
+        switch (e)
+        {
+            case AnimationEvent.AttackDone:
+                isAttacking = false;
+                break;
+            default:
+                break;
+        }
     }
 }

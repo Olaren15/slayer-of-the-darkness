@@ -207,6 +207,7 @@ MonoBehaviour:
     m_Bits: 256
   life: 3
   attackDamage: 1
+  maxImmunityTime: 2
 --- !u!114 &-2989534014281401683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,6 +222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footstep1: {fileID: 11400000, guid: ecaeb59e521b2214e84ec5e8620e8adb, type: 2}
   footstep2: {fileID: 11400000, guid: 4784fb5ea6c93b74d8945ed185ce58de, type: 2}
+  damaged: {fileID: 11400000, guid: 4ae77f7a795453e428de85952d9f5a63, type: 2}
+  dying: {fileID: 11400000, guid: 83dcd0643c804ec4fa8fa54dc75b485d, type: 2}
 --- !u!1001 &8485459275418747624
 PrefabInstance:
   m_ObjectHideFlags: 0

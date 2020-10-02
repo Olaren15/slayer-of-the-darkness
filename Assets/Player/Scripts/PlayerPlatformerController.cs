@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerPlatformerController : PhysicsObject, IDamageable
@@ -18,15 +19,15 @@ public class PlayerPlatformerController : PhysicsObject, IDamageable
 
 	public int life = 3;
 	public int attackDamage = 1;
+	public float maxImmunityTime = 2.0f;
+	[NonSerialized]
+	public float remainingImmunityTime = 0;
+	[NonSerialized]
+	public bool isDead = false;
 
 	private static readonly int GroundedParameter = Animator.StringToHash("grounded");
 	private static readonly int VelocityXParameter = Animator.StringToHash("velocityX");
 	private static readonly int VelocityYParameter = Animator.StringToHash("velocityY");
-
-	private enum AnimationState
-    {
-		AttackEnded
-    }
 
 	private void Awake()
 	{
@@ -40,6 +41,20 @@ public class PlayerPlatformerController : PhysicsObject, IDamageable
 		controls.Player.JumpRelease.performed += context => JumpReleased();
 		controls.Player.Attack.performed += context => Attack();
 	}
+
+    private void Update()
+    {
+		base.Update();
+		if (remainingImmunityTime > 0)
+        {
+			remainingImmunityTime -= Time.deltaTime;
+
+			if (remainingImmunityTime <= 0)
+            {
+				SetOpacity(1.0f);
+            }
+        }
+    }
 
     private void JumpPressed() 
 	{
@@ -118,23 +133,37 @@ public class PlayerPlatformerController : PhysicsObject, IDamageable
 
     public void TakeDamage(int damage)
     {
-		life -= damage;
-
-		if (life <= 0)
+		if (!isDead)
         {
-			Die();
-		}
-		else
-		{
-			animator.SetTrigger("takeDamage");
-		}
+			if (remainingImmunityTime <= 0)
+			{
+				life -= damage;
+
+				if (life <= 0)
+				{
+					Die();
+				}
+				else
+				{
+					animator.SetTrigger("takeDamage");
+					SetOpacity(0.5f);
+					remainingImmunityTime = maxImmunityTime;
+				}
+			}
+        }
     }
+
+	private void SetOpacity(float alpha)
+    {
+		Color tmp = spriteRenderer.color;
+		tmp.a = alpha;
+		spriteRenderer.color = tmp;
+	}
 
 	private void Die()
     {
+		isDead = true;
+		controls.Disable();
 		animator.SetTrigger("die");
-
-
-		spriteRenderer.enabled = false;
 	}
 }

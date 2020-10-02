@@ -6,6 +6,8 @@ public class PlayerSounds : MonoBehaviour
 {
     public SoundEffect footstep1;
     public SoundEffect footstep2;
+    public SoundEffect damaged;
+    public SoundEffect dying;
 
     private SFXPlayer sfxPlayer;
     private bool playFoot1 = true;
@@ -27,5 +29,15 @@ public class PlayerSounds : MonoBehaviour
 
     public void PlayLanding() {
         sfxPlayer.PlaySound(footstep2);
+    }
+
+    public void PlayDamaged()
+    {
+        sfxPlayer.PlaySound(damaged);
+    }
+
+    public void PlayDie()
+    {
+        sfxPlayer.PlaySound(dying);
     }
 }
