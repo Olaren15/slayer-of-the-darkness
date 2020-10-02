@@ -1,18 +1,27 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using System.Collections.Generic;
+using System.Linq;
+using System.Collections;
+using UnityEngine.Tilemaps;
 
 public class PlayerPlatformerController : PhysicsObject, IDamageable
 {
 	public float jumpTakeOffSpeed = 10;
 	public float maxSpeed = 7;
+	public float ladderGrabDeadZone = 0.3f;
+	public float climbSpeed = 5.0f;
 
 	private Animator animator;
+	private BoxCollider2D boxCollider;
+
+	private ContactFilter2D ladderContactFilter;
+	private readonly List<RaycastHit2D> ladderOverlaps = new List<RaycastHit2D>();
+
 	private SpriteRenderer spriteRenderer;
-	private Controls controls;
 	private new Collider2D collider;
 	private bool isFlipped;
-	
+
 	public Transform attackPoint;
 	public float attackRange;
 	public LayerMask enemyLayer;
@@ -20,48 +29,52 @@ public class PlayerPlatformerController : PhysicsObject, IDamageable
 	public int life = 3;
 	public int attackDamage = 1;
 	public float maxImmunityTime = 2.0f;
+
 	[NonSerialized]
 	public float remainingImmunityTime = 0;
+
 	[NonSerialized]
-	public bool isDead = false;
+	public bool isDead;
 
-	private static readonly int GroundedParameter = Animator.StringToHash("grounded");
-	private static readonly int VelocityXParameter = Animator.StringToHash("velocityX");
-	private static readonly int VelocityYParameter = Animator.StringToHash("velocityY");
+	private bool attachedToLadder;
+	private float lastLadderXPosition;
 
-	private void Awake()
+	private static readonly int AttachedToLadder = Animator.StringToHash("attachedToLadder");
+	private static readonly int Grounded = Animator.StringToHash("grounded");
+	private static readonly int VelocityX = Animator.StringToHash("velocityX");
+	private static readonly int VelocityY = Animator.StringToHash("velocityY");
+
+	private static readonly Vector2 ClimbingColliderOffset = new Vector2(0.0774f, 0.6871f);
+	private static readonly Vector2 ClimbingColliderSize = new Vector2(0.5331f, 1.2515f);
+	private static readonly Vector2 NormalColliderOffset = new Vector2(-0.0625f, 0.6871f);
+	private static readonly Vector2 NormalColliderSize = new Vector2(0.8131f, 1.2515f);
+
+	private void Start()
 	{
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		animator = GetComponent<Animator>();
-		collider = GetComponent<Collider2D>();
-		
-		controls = new Controls();
-		controls.Enable();
-		controls.Player.JumpPress.performed += context => JumpPressed();
-		controls.Player.JumpRelease.performed += context => JumpReleased();
-		controls.Player.Attack.performed += context => Attack();
+		boxCollider = GetComponent<BoxCollider2D>();
+		ladderContactFilter.useTriggers = true;
+		ladderContactFilter.useLayerMask = true;
+		ladderContactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(LayerMask.NameToLayer("Ladders")));
+
+		GameManager.controls.Player.JumpPress.performed += context => JumpPressed();
+		GameManager.controls.Player.JumpRelease.performed += context => JumpReleased();
+		GameManager.controls.Player.Attack.performed += context => Attack();
 	}
 
-    private void Update()
-    {
-		base.Update();
-		if (remainingImmunityTime > 0)
-        {
-			remainingImmunityTime -= Time.deltaTime;
-
-			if (remainingImmunityTime <= 0)
-            {
-				SetOpacity(1.0f);
-            }
-        }
-    }
-
-    private void JumpPressed() 
+	private void JumpPressed()
 	{
+		StartCoroutine(JumpThroughPlatform());
+
+		if (attachedToLadder)
+		{
+			DetachFromLadder();
+		}
+
 		if (grounded)
 		{
 			velocity.y = jumpTakeOffSpeed;
-			//animator.SetBool("attacking", false);
 		}
 	}
 
@@ -74,67 +87,154 @@ public class PlayerPlatformerController : PhysicsObject, IDamageable
 	}
 
 	private void Attack()
-    {
+	{
 		animator.SetTrigger("attack");
 
 		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
-        foreach (Collider2D enemy in hitEnemies)
-        {
+		foreach (Collider2D enemy in hitEnemies)
+		{
 			var damageableEnemy = enemy.GetComponent<IDamageable>();
 			if (damageableEnemy != null)
-            {
+			{
 				damageableEnemy.TakeDamage(attackDamage);
 			}
-				
-        }
+		}
 	}
 
-	private Vector2 Move(float inputX)
+	private IEnumerator JumpThroughPlatform()
 	{
-		bool needToFlip = isFlipped ? inputX > 0.0f : inputX < 0.0f;
+		GameObject.FindGameObjectWithTag("Platform").GetComponent<TilemapCollider2D>().enabled = false;
+		yield return new WaitForSeconds(0.5f);
+		GameObject.FindGameObjectWithTag("Platform").GetComponent<TilemapCollider2D>().enabled = true;
+	}
 
+	private void DetachFromLadder()
+	{
+		attachedToLadder = false;
+		disableGravity = false;
+
+		boxCollider.offset = NormalColliderOffset;
+		boxCollider.size = NormalColliderSize;
+	}
+
+	private void AttachToLadder()
+	{
+		rb2d.position = new Vector2(lastLadderXPosition, rb2d.position.y);
+
+		boxCollider.offset = ClimbingColliderOffset;
+		boxCollider.size = ClimbingColliderSize;
+
+		if (isFlipped)
+		{
+			Flip();
+		}
+
+		attachedToLadder = true;
+		disableGravity = true;
+	}
+
+	private void Flip()
+	{
+		transform.rotation = Quaternion.Euler(0.0f, isFlipped ? 0.0f : 180.0f, 0.0f);
+		isFlipped = !isFlipped;
+	}
+
+	protected override void PhysicsObjectUpdate()
+	{
+		if (remainingImmunityTime > 0)
+		{
+			remainingImmunityTime -= Time.deltaTime;
+
+			if (remainingImmunityTime <= 0)
+			{
+				SetOpacity(1.0f);
+			}
+		}
+
+		UpdateLadderAttachment();
+		targetVelocity = attachedToLadder ? LadderMovement() : GroundMovement();
+		UpdateAnimatorVariables();
+	}
+
+	private Vector2 LadderMovement()
+	{
+		return new Vector2(0.0f, GameManager.controls.Player.Climb.ReadValue<float>() * climbSpeed);
+	}
+
+	private Vector2 GroundMovement()
+	{
+		float inputX = GameManager.controls.Player.Move.ReadValue<float>();
+
+		if (animator.GetCurrentAnimatorStateInfo(0).IsName("DefaultAttack") && rb2d.velocity.y == 0)
+		{
+			inputX = 0;
+		}
+
+		bool needToFlip = isFlipped ? inputX > 0.0f : inputX < 0.0f;
 		if (needToFlip)
 		{
 			Flip();
 		}
 
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("DefaultAttack") && rb2d.velocity.y == 0)
-        {
-			inputX = 0;
-        }
-
-        return new Vector2(inputX * maxSpeed, 0.0f);
+		return new Vector2(inputX * maxSpeed, 0.0f);
 	}
 
-	private void Flip()
-    {
-		// spriteRenderer.flipX = !spriteRenderer.flipX;
-		transform.rotation = Quaternion.Euler(0.0f, isFlipped ? 0.0f : 180.0f, 0.0f);
-		isFlipped = !isFlipped;
-	}
-
-	protected override void ComputeVelocity()
+	private void UpdateLadderAttachment()
 	{
-		animator.SetBool(GroundedParameter, grounded);
-		animator.SetFloat(VelocityXParameter, Mathf.Abs(velocity.x) / maxSpeed);
-		animator.SetFloat(VelocityYParameter, velocity.y);
-
-		targetVelocity = Move(controls.Player.Move.ReadValue<float>());
+		if (IsOnLadder())
+		{
+			if (Mathf.Abs(GameManager.controls.Player.Climb.ReadValue<float>()) > ladderGrabDeadZone)
+			{
+				AttachToLadder();
+			}
+		}
+		else
+		{
+			DetachFromLadder();
+		}
 	}
 
-    private void OnDrawGizmosSelected()
-    {
+	private void UpdateAnimatorVariables()
+	{
+		animator.SetBool(AttachedToLadder, attachedToLadder);
+		animator.SetBool(Grounded, grounded);
+		animator.SetFloat(VelocityX, Mathf.Abs(velocity.x) / maxSpeed);
+		animator.SetFloat(VelocityY, velocity.y);
+	}
+
+	private bool IsOnLadder()
+	{
+		rb2d.Cast(Vector2.zero, ladderContactFilter, ladderOverlaps, 0.0f);
+		return ladderOverlaps.Any();
+	}
+
+	private void SetOpacity(float alpha)
+	{
+		Color tmp = spriteRenderer.color;
+		tmp.a = alpha;
+		spriteRenderer.color = tmp;
+	}
+
+	private void Die()
+	{
+		isDead = true;
+		GameManager.controls.Disable();
+		animator.SetTrigger("die");
+	}
+
+	private void OnDrawGizmosSelected()
+	{
 		if (attackPoint == null)
 			return;
 
 		Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
+	}
 
-    public void TakeDamage(int damage)
-    {
+	public void TakeDamage(int damage)
+	{
 		if (!isDead)
-        {
+		{
 			if (remainingImmunityTime <= 0)
 			{
 				life -= damage;
@@ -150,20 +250,14 @@ public class PlayerPlatformerController : PhysicsObject, IDamageable
 					remainingImmunityTime = maxImmunityTime;
 				}
 			}
-        }
-    }
-
-	private void SetOpacity(float alpha)
-    {
-		Color tmp = spriteRenderer.color;
-		tmp.a = alpha;
-		spriteRenderer.color = tmp;
+		}
 	}
 
-	private void Die()
-    {
-		isDead = true;
-		controls.Disable();
-		animator.SetTrigger("die");
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.CompareTag("Ladder"))
+		{
+			lastLadderXPosition = other.transform.position.x - 0.05f;
+		}
 	}
 }

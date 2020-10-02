@@ -11,6 +11,13 @@
             <e p="FollowTarget.cs" t="Include" />
           </e>
         </e>
+        <e p="Enemy" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Enemy.cs" t="Include" />
+            <e p="EnemySounds.cs" t="Include" />
+          </e>
+        </e>
+        <e p="IDamageable.cs" t="Include" />
         <e p="Player" t="Include">
           <e p="Scripts" t="Include">
             <e p="PhysicsObject.cs" t="Include" />
@@ -18,19 +25,36 @@
             <e p="PlayerSounds.cs" t="Include" />
           </e>
         </e>
+        <e p="Tiles" t="Include">
+          <e p="Props" t="Include">
+            <e p="Platform" t="Include">
+              <e p="OneWayPlatform.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="UI" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="PauseMenu.cs" t="Include" />
+          </e>
+        </e>
         <e p="Utilities" t="Include">
+          <e p="GameManager" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="GameManager.cs" t="Include" />
+            </e>
+          </e>
           <e p="Input" t="Include">
             <e p="Controls.cs" t="Include" />
-          </e>
-          <e p="PauseMenu" t="Include">
-            <e p="Scripts" t="Include">
-              <e p="PauseMenu.cs" t="Include" />
-            </e>
           </e>
           <e p="SFXPlayer" t="Include">
             <e p="Scripts" t="Include">
               <e p="SFXPlayer.cs" t="Include" />
               <e p="SoundEffect.cs" t="Include" />
+            </e>
+          </e>
+          <e p="WorldLimits" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="WorldLimits.cs" t="Include" />
             </e>
           </e>
         </e>

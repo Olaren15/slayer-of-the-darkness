@@ -1,43 +1,44 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerSounds : MonoBehaviour
 {
-    public SoundEffect footstep1;
-    public SoundEffect footstep2;
-    public SoundEffect damaged;
-    public SoundEffect dying;
+	public SoundEffect footstep1;
+	public SoundEffect footstep2;
+	private bool alternateSound = true;
 
-    private SFXPlayer sfxPlayer;
-    private bool playFoot1 = true;
-    private void Start()
-    {
-        sfxPlayer = gameObject.transform.Find("SFXPlayer").gameObject.GetComponent<SFXPlayer>();
-    }
+	public SoundEffect damaged;
+	public SoundEffect dying;
 
-    public void PlayFootstep()
-    {
-        sfxPlayer.PlaySound(playFoot1 ? footstep1 : footstep2);
-        playFoot1 = !playFoot1;
-    }
+	private SFXPlayer sfxPlayer;
 
-    public void PlayJump()
-    {
-        sfxPlayer.PlaySound(footstep1);
-    }
+	private void Start()
+	{
+		sfxPlayer = gameObject.transform.Find("SFXPlayer").gameObject.GetComponent<SFXPlayer>();
+	}
 
-    public void PlayLanding() {
-        sfxPlayer.PlaySound(footstep2);
-    }
+	public void PlayFootstep()
+	{
+		sfxPlayer.PlaySound(alternateSound ? footstep1 : footstep2);
+		alternateSound = !alternateSound;
+	}
 
-    public void PlayDamaged()
-    {
-        sfxPlayer.PlaySound(damaged);
-    }
+	public void PlayLanding()
+	{
+		sfxPlayer.PlaySound(footstep2);
+	}
 
-    public void PlayDie()
-    {
-        sfxPlayer.PlaySound(dying);
-    }
+	public void PlayDamaged()
+	{
+		sfxPlayer.PlaySound(damaged);
+	}
+
+	public void PlayDie()
+	{
+		sfxPlayer.PlaySound(dying);
+	}
+
+	public void PlayJump()
+	{
+		sfxPlayer.PlaySound(footstep1);
+	}
 }
