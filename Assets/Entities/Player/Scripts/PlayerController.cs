@@ -7,28 +7,28 @@ using UnityEngine.Tilemaps;
 
 public class PlayerController : PhysicsObject, IDamageable
 {
+	public bool IsGrounded => grounded;
+
 	public float jumpTakeOffSpeed = 10;
 	public float maxSpeed = 7;
 	public float ladderGrabDeadZone = 0.3f;
 	public float climbSpeed = 5.0f;
 
-	private Animator animator;
-	private BoxCollider2D boxCollider;
-
-	private ContactFilter2D ladderContactFilter;
-	private readonly List<RaycastHit2D> ladderOverlaps = new List<RaycastHit2D>();
-
-	private SpriteRenderer spriteRenderer;
-	private new Collider2D collider;
-	private bool isFlipped;
-
 	public Transform attackPoint;
 	public float attackRange;
 	public LayerMask enemyLayer;
 
+	private Animator animator;
+	private BoxCollider2D boxCollider;
+	private ContactFilter2D ladderContactFilter;
+	private readonly List<RaycastHit2D> ladderOverlaps = new List<RaycastHit2D>();
+	private SpriteRenderer spriteRenderer;
+
 	public int life = 3;
 	public int attackDamage = 1;
 	public float maxImmunityTime = 2.0f;
+
+	private bool isFlipped;
 
 	[NonSerialized]
 	public float remainingImmunityTime = 0;
@@ -43,6 +43,9 @@ public class PlayerController : PhysicsObject, IDamageable
 	private static readonly int Grounded = Animator.StringToHash("grounded");
 	private static readonly int VelocityX = Animator.StringToHash("velocityX");
 	private static readonly int VelocityY = Animator.StringToHash("velocityY");
+	private static readonly int DieTrigger = Animator.StringToHash("die");
+	private static readonly int AttackTrigger = Animator.StringToHash("attack");
+	private static readonly int DamageTrigger = Animator.StringToHash("takeDamage");
 
 	private static readonly Vector2 ClimbingColliderOffset = new Vector2(0.0774f, 0.6871f);
 	private static readonly Vector2 ClimbingColliderSize = new Vector2(0.5331f, 1.2515f);
@@ -60,18 +63,18 @@ public class PlayerController : PhysicsObject, IDamageable
 
 		GameManager.controls.Player.JumpPress.performed += context => JumpPressed();
 		GameManager.controls.Player.JumpRelease.performed += context => JumpReleased();
-		GameManager.controls.Player.Attack.performed += context => Attack();
+		GameManager.controls.Player.Crouch.performed += context => CrouchPressed();
+		GameManager.controls.Player.Attack.performed += context => AttackPressed();
 	}
 
 	private void JumpPressed()
 	{
-		StartCoroutine(JumpThroughPlatform());
-
 		if (attachedToLadder)
 		{
 			DetachFromLadder();
+			velocity.y = jumpTakeOffSpeed;
 		}
-
+		
 		if (grounded)
 		{
 			velocity.y = jumpTakeOffSpeed;
@@ -86,27 +89,24 @@ public class PlayerController : PhysicsObject, IDamageable
 		}
 	}
 
-	private void Attack()
+	private void CrouchPressed()
 	{
-		animator.SetTrigger("attack");
+		if (attachedToLadder)
+		{
+			DetachFromLadder();
+		}
+	}
+
+	private void AttackPressed()
+	{
+		animator.SetTrigger(AttackTrigger);
 
 		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
 		foreach (Collider2D enemy in hitEnemies)
 		{
-			var damageableEnemy = enemy.GetComponent<IDamageable>();
-			if (damageableEnemy != null)
-			{
-				damageableEnemy.TakeDamage(attackDamage);
-			}
+			enemy.GetComponent<IDamageable>()?.TakeDamage(attackDamage);
 		}
-	}
-
-	private IEnumerator JumpThroughPlatform()
-	{
-		GameObject.FindGameObjectWithTag("Platform").GetComponent<TilemapCollider2D>().enabled = false;
-		yield return new WaitForSeconds(0.5f);
-		GameObject.FindGameObjectWithTag("Platform").GetComponent<TilemapCollider2D>().enabled = true;
 	}
 
 	private void DetachFromLadder()
@@ -153,6 +153,7 @@ public class PlayerController : PhysicsObject, IDamageable
 		}
 
 		UpdateLadderAttachment();
+
 		targetVelocity = attachedToLadder ? LadderMovement() : GroundMovement();
 		UpdateAnimatorVariables();
 	}
@@ -178,6 +179,13 @@ public class PlayerController : PhysicsObject, IDamageable
 		}
 
 		return new Vector2(inputX * maxSpeed, 0.0f);
+	}
+
+	private void Die()
+	{
+		isDead = true;
+		GameManager.controls.Disable();
+		animator.SetTrigger(DieTrigger);
 	}
 
 	private void UpdateLadderAttachment()
@@ -216,39 +224,21 @@ public class PlayerController : PhysicsObject, IDamageable
 		spriteRenderer.color = tmp;
 	}
 
-	private void Die()
-	{
-		isDead = true;
-		GameManager.controls.Disable();
-		animator.SetTrigger("die");
-	}
-
-	private void OnDrawGizmosSelected()
-	{
-		if (attackPoint == null)
-			return;
-
-		Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-	}
-
 	public void TakeDamage(int damage)
 	{
-		if (!isDead)
+		if (!isDead && remainingImmunityTime <= 0.0f)
 		{
-			if (remainingImmunityTime <= 0)
-			{
-				life -= damage;
+			life -= damage;
 
-				if (life <= 0)
-				{
-					Die();
-				}
-				else
-				{
-					animator.SetTrigger("takeDamage");
-					SetOpacity(0.5f);
-					remainingImmunityTime = maxImmunityTime;
-				}
+			if (life <= 0)
+			{
+				Die();
+			}
+			else
+			{
+				animator.SetTrigger(DamageTrigger);
+				SetOpacity(0.5f);
+				remainingImmunityTime = maxImmunityTime;
 			}
 		}
 	}
@@ -259,5 +249,13 @@ public class PlayerController : PhysicsObject, IDamageable
 		{
 			lastLadderXPosition = other.transform.position.x - 0.05f;
 		}
+	}
+
+	private void OnDrawGizmosSelected()
+	{
+		if (attackPoint == null)
+			return;
+
+		Gizmos.DrawWireSphere(attackPoint.position, attackRange);
 	}
 }

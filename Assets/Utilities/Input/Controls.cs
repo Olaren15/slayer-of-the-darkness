@@ -51,7 +51,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": ""Press(behavior=1)""
                 },
                 {
-                    ""name"": ""GoDown"",
+                    ""name"": ""Crouch"",
                     ""type"": ""Button"",
                     ""id"": ""77a99d03-ff9d-4431-85c8-0a051a6ef7de"",
                     ""expectedControlType"": ""Button"",
@@ -214,22 +214,22 @@ public class @Controls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ac8c576e-3ec5-4a31-a1ab-b06251ebd87c"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""GoDown"",
+                    ""action"": ""Crouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""bb944453-3512-41d6-b97b-4020cdb406a6"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""GoDown"",
+                    ""action"": ""Crouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -682,7 +682,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_JumpPress = m_Player.FindAction("JumpPress", throwIfNotFound: true);
         m_Player_JumpRelease = m_Player.FindAction("JumpRelease", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
-        m_Player_GoDown = m_Player.FindAction("GoDown", throwIfNotFound: true);
+        m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_Climb = m_Player.FindAction("Climb", throwIfNotFound: true);
         // Interface
         m_Interface = asset.FindActionMap("Interface", throwIfNotFound: true);
@@ -748,7 +748,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_JumpPress;
     private readonly InputAction m_Player_JumpRelease;
     private readonly InputAction m_Player_Attack;
-    private readonly InputAction m_Player_GoDown;
+    private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_Climb;
     public struct PlayerActions
     {
@@ -758,7 +758,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @JumpPress => m_Wrapper.m_Player_JumpPress;
         public InputAction @JumpRelease => m_Wrapper.m_Player_JumpRelease;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
-        public InputAction @GoDown => m_Wrapper.m_Player_GoDown;
+        public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
         public InputAction @Climb => m_Wrapper.m_Player_Climb;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -781,9 +781,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @GoDown.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGoDown;
-                @GoDown.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGoDown;
-                @GoDown.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnGoDown;
+                @Crouch.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCrouch;
+                @Crouch.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCrouch;
+                @Crouch.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCrouch;
                 @Climb.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClimb;
                 @Climb.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClimb;
                 @Climb.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClimb;
@@ -803,9 +803,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
-                @GoDown.started += instance.OnGoDown;
-                @GoDown.performed += instance.OnGoDown;
-                @GoDown.canceled += instance.OnGoDown;
+                @Crouch.started += instance.OnCrouch;
+                @Crouch.performed += instance.OnCrouch;
+                @Crouch.canceled += instance.OnCrouch;
                 @Climb.started += instance.OnClimb;
                 @Climb.performed += instance.OnClimb;
                 @Climb.canceled += instance.OnClimb;
@@ -934,7 +934,7 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnJumpPress(InputAction.CallbackContext context);
         void OnJumpRelease(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
-        void OnGoDown(InputAction.CallbackContext context);
+        void OnCrouch(InputAction.CallbackContext context);
         void OnClimb(InputAction.CallbackContext context);
     }
     public interface IInterfaceActions

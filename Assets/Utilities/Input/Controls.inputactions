@@ -38,7 +38,7 @@
                     "interactions": "Press(behavior=1)"
                 },
                 {
-                    "name": "GoDown",
+                    "name": "Crouch",
                     "type": "Button",
                     "id": "77a99d03-ff9d-4431-85c8-0a051a6ef7de",
                     "expectedControlType": "Button",
@@ -201,22 +201,22 @@
                 {
                     "name": "",
                     "id": "ac8c576e-3ec5-4a31-a1ab-b06251ebd87c",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/leftCtrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "GoDown",
+                    "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "bb944453-3512-41d6-b97b-4020cdb406a6",
-                    "path": "<Gamepad>/leftStick/down",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "GoDown",
+                    "action": "Crouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
