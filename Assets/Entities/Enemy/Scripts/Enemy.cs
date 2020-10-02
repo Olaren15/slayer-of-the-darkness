@@ -1,103 +1,107 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
-    public GameObject deathEffect;
-    public Animator animator;
-    public Transform attackPoint;
-    public float attackRange;
-    public LayerMask playerLayer;
+	public GameObject deathEffect;
+	public Animator animator;
+	public Transform attackPoint;
+	public LayerMask playerLayer;
 
-    public int life = 3;
-    public int attackDamage = 1;
-    private bool isDead = false;
-    private bool isAttacking = false;
-    public float attackCooldown = 1.0f;
+	public int life = 3;
+	public int attackDamage = 1;
+	public float attackRange;
+	private bool isDead;
+	private bool isAttacking;
+	public float attackCooldown = 1.0f;
 
-    public enum AnimationEvent
-    {
-        AttackDone
-    }
+	private static readonly int AttackTrigger = Animator.StringToHash("Attack");
+	private static readonly int TakeDamageTrigger = Animator.StringToHash("TakeDamage");
+	private static readonly int DieTrigger = Animator.StringToHash("Die");
 
-    void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
+	public enum AnimationEvent
+	{
+		AttackDone
+	}
 
-    void Update()
-    {
-        if (!isDead)
-        {
-            if (!isAttacking)
-            {
-                CheckAttack();
-            }
-        }
-    }
+	void Start()
+	{
+		animator = GetComponent<Animator>();
+	}
 
-    private void CheckAttack()
-    {
-        Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
+	void Update()
+	{
+		if (!isDead)
+		{
+			if (!isAttacking)
+			{
+				CheckAttack();
+			}
+		}
+	}
 
-        foreach (Collider2D player in hitPlayers)
-        {
-            var damageablePlayer = player.GetComponent<IDamageable>();
-            if (damageablePlayer != null && player.GetComponent<PlayerPlatformerController>().remainingImmunityTime <= 0 && !player.GetComponent<PlayerPlatformerController>().isDead)
-            {
-                Attack(damageablePlayer);
-            }
-        }
-    }
+	private void CheckAttack()
+	{
+		Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
-    private void Attack(IDamageable entity)
-    {
-        isAttacking = true;
-        animator.SetTrigger("Attack");
-        entity.TakeDamage(attackDamage);
-    }
+		foreach (Collider2D player in hitPlayers)
+		{
+			IDamageable damageablePlayer = player.GetComponent<IDamageable>();
+			if (damageablePlayer != null && player.GetComponent<PlayerController>().remainingImmunityTime <= 0 &&
+					!player.GetComponent<PlayerController>().isDead)
+			{
+				Attack(damageablePlayer);
+			}
+		}
+	}
 
-    private void OnDrawGizmosSelected()
-    {
-        if (attackPoint == null)
-            return;
+	private void Attack(IDamageable entity)
+	{
+		isAttacking = true;
+		animator.SetTrigger(AttackTrigger);
+		entity.TakeDamage(attackDamage);
+	}
 
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
+	private void OnDrawGizmosSelected()
+	{
+		if (attackPoint == null)
+			return;
 
-    public void TakeDamage(int damage)
-    {
-        life -= damage;
-        
-        if (life <= 0)
-        {
-            Die();
-        } 
-        else
-        {
-            animator.SetTrigger("TakeDamage");
-        }
-    }
+		Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+	}
 
-    private void Die() 
-    {
-        isDead = true;
-        Instantiate(deathEffect, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + gameObject.transform.localScale.y), Quaternion.identity);
-        animator.SetTrigger("Die");
-        
-        Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
-    }
+	public void TakeDamage(int damage)
+	{
+		life -= damage;
 
-    private void AnimationObserver(AnimationEvent e)
-    {
-        switch (e)
-        {
-            case AnimationEvent.AttackDone:
-                isAttacking = false;
-                break;
-            default:
-                break;
-        }
-    }
+		if (life <= 0)
+		{
+			Die();
+		}
+		else
+		{
+			animator.SetTrigger(TakeDamageTrigger);
+		}
+	}
+
+	private void Die()
+	{
+		isDead = true;
+		Instantiate(deathEffect, new Vector3(transform.position.x, transform.position.y + transform.localScale.y),
+			Quaternion.identity);
+		
+		animator.SetTrigger(DieTrigger);
+		Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+	}
+
+	private void AnimationObserver(AnimationEvent e)
+	{
+		switch (e)
+		{
+			case AnimationEvent.AttackDone:
+				isAttacking = false;
+				break;
+			default:
+				break;
+		}
+	}
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Collections;
 using UnityEngine.Tilemaps;
 
-public class PlayerPlatformerController : PhysicsObject, IDamageable
+public class PlayerController : PhysicsObject, IDamageable
 {
 	public float jumpTakeOffSpeed = 10;
 	public float maxSpeed = 7;
