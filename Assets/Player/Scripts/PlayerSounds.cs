@@ -4,13 +4,16 @@ public class PlayerSounds : MonoBehaviour
 {
 	public SoundEffect footstep1;
 	public SoundEffect footstep2;
+	private bool alternateSound = true;
+
+	public SoundEffect damaged;
+	public SoundEffect dying;
 
 	private SFXPlayer sfxPlayer;
-	private bool alternateSound = true;
 
 	private void Start()
 	{
-		sfxPlayer = FindObjectOfType<SFXPlayer>();
+		sfxPlayer = gameObject.transform.Find("SFXPlayer").gameObject.GetComponent<SFXPlayer>();
 	}
 
 	public void PlayFootstep()
@@ -19,13 +22,23 @@ public class PlayerSounds : MonoBehaviour
 		alternateSound = !alternateSound;
 	}
 
-	public void PlayJump()
-	{
-		sfxPlayer.PlaySound(footstep1);
-	}
-
 	public void PlayLanding()
 	{
 		sfxPlayer.PlaySound(footstep2);
+	}
+
+	public void PlayDamaged()
+	{
+		sfxPlayer.PlaySound(damaged);
+	}
+
+	public void PlayDie()
+	{
+		sfxPlayer.PlaySound(dying);
+	}
+
+	public void PlayJump()
+	{
+		sfxPlayer.PlaySound(footstep1);
 	}
 }

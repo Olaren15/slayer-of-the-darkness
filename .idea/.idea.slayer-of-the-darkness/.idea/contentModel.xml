@@ -11,11 +11,25 @@
             <e p="FollowTarget.cs" t="Include" />
           </e>
         </e>
+        <e p="Enemy" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Enemy.cs" t="Include" />
+            <e p="EnemySounds.cs" t="Include" />
+          </e>
+        </e>
+        <e p="IDamageable.cs" t="Include" />
         <e p="Player" t="Include">
           <e p="Scripts" t="Include">
             <e p="PhysicsObject.cs" t="Include" />
             <e p="PlayerPlatformerController.cs" t="Include" />
             <e p="PlayerSounds.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Tiles" t="Include">
+          <e p="Props" t="Include">
+            <e p="Platform" t="Include">
+              <e p="OneWayPlatform.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="UI" t="Include">

@@ -45,12 +45,10 @@ public class PhysicsObject : MonoBehaviour
 			rb2d.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
 		}
 
-		ComputeVelocity();
+		PhysicsObjectUpdate();
 	}
 
-	protected virtual void ComputeVelocity()
-	{
-	}
+	protected virtual void PhysicsObjectUpdate() { }
 
 	private void FixedUpdate()
 	{

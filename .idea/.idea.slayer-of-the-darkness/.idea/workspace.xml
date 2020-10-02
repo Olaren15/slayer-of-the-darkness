@@ -20,19 +20,126 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4df57bdc-342d-463c-ab54-104a7fd5f758" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/External/Hero Knight - Pixel Art/Sprites/climbing.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/Hero Knight - Pixel Art/Sprites/climbing.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/PixelPack03_Free.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/PixelPack03_Free/BKG01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/PixelPack03_Free/BKG01.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/PixelPack03_Free/BKG03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/PixelPack03_Free/BKG03.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/PixelPack03_Free/Blocks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/PixelPack03_Free/Blocks.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/PixelPack03_Free/Bricks.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/PixelPack03_Free/Bricks.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/PixelPack03_Free/BricksWide.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/PixelPack03_Free/BricksWide.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/PixelPack03_Free/Columns.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/PixelPack03_Free/Columns.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/PixelPack03_Free/Crate.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/PixelPack03_Free/Crate.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/PixelPack03_Free/Gems.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/PixelPack03_Free/Gems.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/PixelPack03_Free/Tileset.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/External/PixelPack03_Free/Tileset.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Player/Animations/Climbing.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Backgrounds.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Backgrounds/BKG01.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Backgrounds/BKG01.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Backgrounds/BKG03.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Backgrounds/BKG03.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Backgrounds/BackgroundsTilePallette.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Grounds.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Grounds/GroundsTilePallette.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Grounds/GroundsTilePallette.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Grounds/Shadow.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Grounds/Shadow/Shadows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Grounds/Shadow/Shadows.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Grounds/Shadow/ShadowsRuleTile.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Grounds/Shadow/ShadowsRuleTile.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Barrel.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Barrel.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Billboard.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Billboard.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Bucket.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Bucket.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Bush2.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Bush2.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Bush3.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Bush3.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/GrassRandomTile.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/GrassRandomTile.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Ladder.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Ladder/Ladder.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Ladder/Ladder.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Ladder/LadderRuleTile.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Ladder/LadderRuleTile.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Platform.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Platform/OneWayPlatform.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Platform/OneWayPlatform.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Platform/Platform.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Platform/Platform.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/PropsTilePallette.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Tree.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Tree.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Utilities/GameManager.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Utilities/GameManager/GameManager.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Utilities/GameManager/GameManager.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Utilities/GameManager/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Utilities/GameManager/Scripts/GameManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Utilities/GameManager/Scripts/GameManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Utilities/WorldLimits.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Utilities/WorldLimits/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Utilities/WorldLimits/Scripts/WorldLimits.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Utilities/WorldLimits/Scripts/WorldLimits.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Utilities/WorldLimits/WorldLimits.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Utilities/WorldLimits/WorldLimits.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.slayer-of-the-darkness/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Camera/Main Camera.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera/Main Camera.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Camera/Scripts/FollowTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera/Scripts/FollowTarget.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Enemy/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Enemy/Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External/Cainos/Pixel Art Platformer - Village Props/Texture/GroundRueTile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tiles/Grounds/GroundRueTile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External/Cainos/Pixel Art Platformer - Village Props/Texture/GroundRueTile.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tiles/Grounds/GroundRueTile.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External/Cainos/Pixel Art Platformer - Village Props/Texture/TX Village Props.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/External/Cainos/Pixel Art Platformer - Village Props/Texture/TX Village Props.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External/Hero Knight - Pixel Art/Sprites/HeroKnight_0.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External/Hero Knight - Pixel Art/Sprites/HeroKnight_0.controller.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Animations/OnLadder.anim.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External/Hero Knight - Pixel Art/Sprites/New Animation.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Animations/OnLadder.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/External/Hero Knight - Pixel Art/Sprites/New Animation.anim.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Animations/Climbing.anim.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Interfaces.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Animations/PlayerAnimatorController.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/PhysicsObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/PhysicsObject.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerSounds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Player/Scripts/PlayerSounds.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tiles/TilePallette.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tiles/Backgrounds/BackgroundsTilePallette.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tiles/TilePallette.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tiles/Props/PropsTilePallette.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tiles/bush1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Bush1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tiles/bush1.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Bush1.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tiles/campfire.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Campfire.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Tiles/campfire.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Tiles/Props/Campfire.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/UI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Utilities/Input/Controls.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Utilities/Input/Controls.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Utilities/Input/Controls.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Utilities/Input/Controls.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Utilities/SFXPlayer/Scripts/SFXPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Utilities/SFXPlayer/Scripts/SFXPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Utilities/SFXPlayer/Scripts/SoundEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Utilities/SFXPlayer/Scripts/SoundEffect.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="master" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,13 +158,14 @@
         <option value="$PROJECT_DIR$/Assets/Utilities/PauseMenu/Scripts/PauseMenu.cs" />
         <option value="$PROJECT_DIR$/Packages/com.unity.2d.tilemap.extras/Runtime/Tiles/RuleTile/RuleTile.cs" />
         <option value="$PROJECT_DIR$/Assets/Utilities/SFXPlayer/Scripts/SFXPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerSounds.cs" />
         <option value="$PROJECT_DIR$/Assets/UI/Scripts/PauseMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Utilities/GameManager/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Utilities/SFXPlayer/Scripts/SoundEffect.cs" />
-        <option value="$PROJECT_DIR$/Assets/Player/Scripts/PhysicsObject.cs" />
         <option value="$PROJECT_DIR$/Assets/Utilities/WorldLimits/Scripts/WorldLimits.cs" />
         <option value="$PROJECT_DIR$/Assets/Camera/Scripts/FollowTarget.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/Scripts/PhysicsObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerSounds.cs" />
+        <option value="$PROJECT_DIR$/Assets/Tiles/Props/Platform/OneWayPlatform.cs" />
         <option value="$PROJECT_DIR$/Assets/Player/Scripts/PlayerPlatformerController.cs" />
       </list>
     </option>
@@ -102,10 +210,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="32416">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="32416" />
+      <option name="pid" />
       <option name="selectedOptions">
         <set />
       </option>
@@ -132,6 +240,7 @@
       <workItem from="1601498012130" duration="642000" />
       <workItem from="1601502013063" duration="12499000" />
       <workItem from="1601515708596" duration="7879000" />
+      <workItem from="1601668276727" duration="2974000" />
     </task>
     <servers />
   </component>
@@ -156,6 +265,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="970" y="326" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601668635463">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state x="970" y="326" key="#com.intellij.fileTypes.FileTypeChooser/0.0.2560.1050@0.0.2560.1050" timestamp="1601668635463" />
     <state width="478" height="466" key="DebuggerActiveHint" timestamp="1601514996007">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
