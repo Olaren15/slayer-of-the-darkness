@@ -2,8 +2,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-using System.Collections;
-using UnityEngine.Tilemaps;
 
 public class PlayerController : PhysicsObject, IDamageable
 {
@@ -19,7 +17,6 @@ public class PlayerController : PhysicsObject, IDamageable
 	public LayerMask enemyLayer;
 
 	private Animator animator;
-	private BoxCollider2D boxCollider;
 	private ContactFilter2D ladderContactFilter;
 	private readonly List<RaycastHit2D> ladderOverlaps = new List<RaycastHit2D>();
 	private SpriteRenderer spriteRenderer;
@@ -28,15 +25,16 @@ public class PlayerController : PhysicsObject, IDamageable
 	public int attackDamage = 1;
 	public float maxImmunityTime = 2.0f;
 
-	private bool isFlipped;
-
 	[NonSerialized]
-	public float remainingImmunityTime = 0;
+	public float remainingImmunityTime;
 
 	[NonSerialized]
 	public bool isDead;
 
+	private bool isFlipped;
+	private bool canDoubleJump;
 	private bool attachedToLadder;
+	private bool isOnLadder;
 	private float lastLadderXPosition;
 
 	private static readonly int AttachedToLadder = Animator.StringToHash("attachedToLadder");
@@ -47,16 +45,10 @@ public class PlayerController : PhysicsObject, IDamageable
 	private static readonly int AttackTrigger = Animator.StringToHash("attack");
 	private static readonly int DamageTrigger = Animator.StringToHash("takeDamage");
 
-	private static readonly Vector2 ClimbingColliderOffset = new Vector2(0.0774f, 0.6871f);
-	private static readonly Vector2 ClimbingColliderSize = new Vector2(0.5331f, 1.2515f);
-	private static readonly Vector2 NormalColliderOffset = new Vector2(-0.0625f, 0.6871f);
-	private static readonly Vector2 NormalColliderSize = new Vector2(0.8131f, 1.2515f);
-
 	private void Start()
 	{
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		animator = GetComponent<Animator>();
-		boxCollider = GetComponent<BoxCollider2D>();
 		ladderContactFilter.useTriggers = true;
 		ladderContactFilter.useLayerMask = true;
 		ladderContactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(LayerMask.NameToLayer("Ladders")));
@@ -69,15 +61,23 @@ public class PlayerController : PhysicsObject, IDamageable
 
 	private void JumpPressed()
 	{
+		// jumping from ladder
 		if (attachedToLadder)
 		{
 			DetachFromLadder();
 			velocity.y = jumpTakeOffSpeed;
 		}
-		
+
+		// normal jump
 		if (grounded)
 		{
 			velocity.y = jumpTakeOffSpeed;
+		}
+		// double jump
+		else if (canDoubleJump && !attachedToLadder)
+		{
+			velocity.y = jumpTakeOffSpeed;
+			canDoubleJump = false;
 		}
 	}
 
@@ -113,17 +113,14 @@ public class PlayerController : PhysicsObject, IDamageable
 	{
 		attachedToLadder = false;
 		disableGravity = false;
-
-		boxCollider.offset = NormalColliderOffset;
-		boxCollider.size = NormalColliderSize;
 	}
 
 	private void AttachToLadder()
 	{
-		rb2d.position = new Vector2(lastLadderXPosition, rb2d.position.y);
+		// reset the double jump state
+		canDoubleJump = true;
 
-		boxCollider.offset = ClimbingColliderOffset;
-		boxCollider.size = ClimbingColliderSize;
+		rb2d.position = new Vector2(lastLadderXPosition, rb2d.position.y);
 
 		if (isFlipped)
 		{
@@ -153,6 +150,11 @@ public class PlayerController : PhysicsObject, IDamageable
 		}
 
 		UpdateLadderAttachment();
+
+		if (IsGrounded)
+		{
+			canDoubleJump = true;
+		}
 
 		targetVelocity = attachedToLadder ? LadderMovement() : GroundMovement();
 		UpdateAnimatorVariables();
@@ -247,10 +249,10 @@ public class PlayerController : PhysicsObject, IDamageable
 	{
 		if (other.CompareTag("Ladder"))
 		{
-			lastLadderXPosition = other.transform.position.x - 0.05f;
+			lastLadderXPosition = other.transform.position.x;
 		}
 	}
-
+	
 	private void OnDrawGizmosSelected()
 	{
 		if (attackPoint == null)
