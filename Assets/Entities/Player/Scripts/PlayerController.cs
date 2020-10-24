@@ -20,6 +20,7 @@ public class PlayerController : PhysicsObject, IDamageable
 	private ContactFilter2D ladderContactFilter;
 	private readonly List<RaycastHit2D> ladderOverlaps = new List<RaycastHit2D>();
 	private SpriteRenderer spriteRenderer;
+	private PlayerSounds playerSounds;
 
 	public int life = 3;
 	public int attackDamage = 1;
@@ -49,6 +50,7 @@ public class PlayerController : PhysicsObject, IDamageable
 	{
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		animator = GetComponent<Animator>();
+		playerSounds = GetComponent<PlayerSounds>();
 		ladderContactFilter.useTriggers = true;
 		ladderContactFilter.useLayerMask = true;
 		ladderContactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(LayerMask.NameToLayer("Ladders")));
@@ -66,17 +68,19 @@ public class PlayerController : PhysicsObject, IDamageable
 		{
 			DetachFromLadder();
 			velocity.y = jumpTakeOffSpeed;
+			playerSounds.PlayJump();
 		}
-
 		// normal jump
-		if (grounded)
+		else if (grounded)
 		{
 			velocity.y = jumpTakeOffSpeed;
+			playerSounds.PlayJump();
 		}
 		// double jump
 		else if (canDoubleJump && !attachedToLadder)
 		{
 			velocity.y = jumpTakeOffSpeed;
+			playerSounds.PlayDoubleJump();
 			canDoubleJump = false;
 		}
 	}
@@ -252,7 +256,7 @@ public class PlayerController : PhysicsObject, IDamageable
 			lastLadderXPosition = other.transform.position.x;
 		}
 	}
-	
+
 	private void OnDrawGizmosSelected()
 	{
 		if (attackPoint == null)

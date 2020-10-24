@@ -6481,6 +6481,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2989534014281401683, guid: 5e9cbeb6c84db54449a29f075bdbc97f,
+        type: 3}
+      propertyPath: jumping
+      value: 
+      objectReference: {fileID: 11400000, guid: 45da6b961d7690d4fbecdd67cabf2c38,
+        type: 2}
     - target: {fileID: 8485459275211454403, guid: 5e9cbeb6c84db54449a29f075bdbc97f,
         type: 3}
       propertyPath: m_LocalPosition.x

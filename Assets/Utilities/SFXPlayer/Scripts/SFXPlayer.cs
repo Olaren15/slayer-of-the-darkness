@@ -18,4 +18,11 @@ public class SFXPlayer : MonoBehaviour
 		audioSource.clip = soundEffect.soundToPlay;
 		audioSource.Play();
 	}
+
+	public void PlaySoundAtPitch(SoundEffect soundEffect, float pitch)
+	{
+		audioSource.pitch = pitch;
+		audioSource.clip = soundEffect.soundToPlay;
+		audioSource.Play();
+	}
 }
