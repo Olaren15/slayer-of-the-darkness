@@ -126,7 +126,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8485459275211454415}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -152,7 +152,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.047321618, y: 0.6883726}
+  m_Offset: {x: 0, y: 0.7}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -163,7 +163,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.85371184, y: 1.2641447}
+  m_Size: {x: 0.6, y: 1.25}
   m_EdgeRadius: 0
 --- !u!95 &8485459275211454401
 Animator:
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2050df074f0a2eb4ea1c7e328cdcd8a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityModifier: 1
+  gravityModifier: 2
   minGroundNormalY: 0.65
   jumpTakeOffSpeed: 11.5
   maxSpeed: 7
@@ -224,6 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   footstep1: {fileID: 11400000, guid: ecaeb59e521b2214e84ec5e8620e8adb, type: 2}
   footstep2: {fileID: 11400000, guid: 4784fb5ea6c93b74d8945ed185ce58de, type: 2}
+  jumping: {fileID: 11400000, guid: 45da6b961d7690d4fbecdd67cabf2c38, type: 2}
   damaged: {fileID: 11400000, guid: 4ae77f7a795453e428de85952d9f5a63, type: 2}
   dying: {fileID: 11400000, guid: 83dcd0643c804ec4fa8fa54dc75b485d, type: 2}
 --- !u!1001 &8485459275418747624
