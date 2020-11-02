@@ -2,19 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chest : MonoBehaviour
+public class Chest : MonoBehaviour, Collectable
 {
-    public int CoinAmount { get; private set; }
+    public int coinAmount = 5;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Collect(GameObject player)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        player.GetComponent<Inventory>().AddMoney(coinAmount);
     }
 }

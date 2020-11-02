@@ -15,12 +15,14 @@ public class PlayerController : PhysicsObject, IDamageable
 	public Transform attackPoint;
 	public float attackRange;
 	public LayerMask enemyLayer;
+	public LayerMask interactableLayer;
 
 	private Animator animator;
 	private ContactFilter2D ladderContactFilter;
 	private readonly List<RaycastHit2D> ladderOverlaps = new List<RaycastHit2D>();
 	private SpriteRenderer spriteRenderer;
 	private PlayerSounds playerSounds;
+	private BoxCollider2D collider;
 
 	public int life = 3;
 	public int attackDamage = 1;
@@ -50,6 +52,7 @@ public class PlayerController : PhysicsObject, IDamageable
 	{
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		animator = GetComponent<Animator>();
+		collider = GetComponent<BoxCollider2D>();
 		playerSounds = GetComponent<PlayerSounds>();
 		ladderContactFilter.useTriggers = true;
 		ladderContactFilter.useLayerMask = true;
@@ -85,7 +88,7 @@ public class PlayerController : PhysicsObject, IDamageable
 		}
 	}
 
-	private void JumpReleased()
+    private void JumpReleased()
 	{
 		if (velocity.y > 0.0f)
 		{
@@ -257,7 +260,18 @@ public class PlayerController : PhysicsObject, IDamageable
 		}
 	}
 
-	private void OnDrawGizmosSelected()
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+		if (GameManager.controls.Player.Use.triggered)
+        {
+			collision.gameObject.GetComponent<Collectable>()?.Collect(gameObject);
+			print(gameObject.GetComponent<Inventory>().money);
+        }
+
+		
+    }
+
+    private void OnDrawGizmosSelected()
 	{
 		if (attackPoint == null)
 			return;
