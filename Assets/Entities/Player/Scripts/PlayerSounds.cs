@@ -4,12 +4,12 @@ public class PlayerSounds : MonoBehaviour
 {
 	public SoundEffect footstep1;
 	public SoundEffect footstep2;
-	private bool alternateSound = true;
-
+	public SoundEffect jumping;
 	public SoundEffect damaged;
 	public SoundEffect dying;
 
 	private SFXPlayer sfxPlayer;
+	private bool alternateSound = true;
 
 	private void Start()
 	{
@@ -39,6 +39,11 @@ public class PlayerSounds : MonoBehaviour
 
 	public void PlayJump()
 	{
-		sfxPlayer.PlaySound(footstep1);
+		sfxPlayer.PlaySoundAtPitch(jumping, 1);
+	}
+
+	public void PlayDoubleJump()
+	{
+		sfxPlayer.PlaySoundAtPitch(jumping, 1.25f);
 	}
 }
