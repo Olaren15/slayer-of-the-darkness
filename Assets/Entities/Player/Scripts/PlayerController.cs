@@ -32,6 +32,9 @@ public class PlayerController : PhysicsObject, IDamageable
 	[NonSerialized]
 	public bool isDead;
 
+	[NonSerialized]
+	public Inventory inventory;
+
 	private bool isFlipped;
 	private bool canDoubleJump;
 	private bool attachedToLadder;
@@ -190,8 +193,9 @@ public class PlayerController : PhysicsObject, IDamageable
 	private void Die()
 	{
 		isDead = true;
-		GameManager.controls.Disable();
+		GameManager.controls.Player.Disable();
 		animator.SetTrigger(DieTrigger);
+		FindObjectOfType<DeathMenu>()?.Show();
 	}
 
 	private void UpdateLadderAttachment()
