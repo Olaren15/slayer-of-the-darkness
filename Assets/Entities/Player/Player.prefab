@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 8485459275211454401}
   - component: {fileID: 8485459275211454402}
   - component: {fileID: -2989534014281401683}
+  - component: {fileID: 1808567445}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -227,6 +228,34 @@ MonoBehaviour:
   jumping: {fileID: 11400000, guid: 45da6b961d7690d4fbecdd67cabf2c38, type: 2}
   damaged: {fileID: 11400000, guid: 4ae77f7a795453e428de85952d9f5a63, type: 2}
   dying: {fileID: 11400000, guid: 83dcd0643c804ec4fa8fa54dc75b485d, type: 2}
+  door: {fileID: 11400000, guid: 50d331dccc6ddd0498ba300f6be47f5e, type: 2}
+--- !u!114 &1808567445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8485459275211454415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cb20b0d85c8853498df1e4d6a30c7dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  numOfHearts: 3
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fullHeart: {fileID: 21300000, guid: 25548d55dd6db884095dafe410d5f500, type: 3}
+  emptyHeart: {fileID: 21300000, guid: aea7193f8b8f9904b864708ab97c3393, type: 3}
 --- !u!1001 &8485459275418747624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -298,6 +327,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589889262204300571, guid: 8aacca94a740b9e45b07d3a84eb19ea1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8aacca94a740b9e45b07d3a84eb19ea1, type: 3}

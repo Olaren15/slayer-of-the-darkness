@@ -5,19 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class InteractableDoor : MonoBehaviour
 {
-	// Start is called before the first frame update
-	private BoxCollider2D boxCollider;
-
+	private AudioSource sound;
+	public Animator transitionAnim;
 	public int sceneID;
 
 	private void Start()
 	{
-		boxCollider = GetComponent<BoxCollider2D>();
-	}
-
-	// Update is called once per frame
-	private void Update()
-	{
+		sound = GetComponent<AudioSource>();
 	}
 
 	private void OnTriggerStay2D(Collider2D collision)
@@ -26,8 +20,16 @@ public class InteractableDoor : MonoBehaviour
 		{
 			if (GameManager.controls.Player.Interact.ReadValue<float>() != 0)
 			{
-				SceneManager.LoadScene(sceneID);
+				sound.Play();
+				StartCoroutine(LoadScene());
 			}
 		}
+	}
+
+	private IEnumerator LoadScene()
+	{
+		transitionAnim.SetTrigger("transitionEnd");
+		yield return new WaitForSeconds(1.5f);
+		SceneManager.LoadScene(sceneID);
 	}
 }
