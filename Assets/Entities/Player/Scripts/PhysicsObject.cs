@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PhysicsObject : MonoBehaviour
@@ -60,7 +61,7 @@ public class PhysicsObject : MonoBehaviour
 		{
 			velocity += Physics2D.gravity * (gravityModifier * Time.deltaTime);
 		}
-
+	
 		velocity.x = targetVelocity.x;
 		grounded = false;
 
@@ -71,6 +72,12 @@ public class PhysicsObject : MonoBehaviour
 		Movement(move, false);
 		move = Vector2.up * deltaPosition.y;
 		Movement(move, true);
+
+		if (grounded)
+		{
+			// workaround to prevent gravity from stacking up when grounded
+			velocity.y = 0.0f;
+		}
 	}
 
 	private void Movement(Vector2 move, bool yMovement)
@@ -98,12 +105,16 @@ public class PhysicsObject : MonoBehaviour
 				{
 					velocity -= projection * currentNormal;
 				}
-
+				
 				float modifiedDistance = hit.distance - ShellRadius;
 				distance = modifiedDistance < distance ? modifiedDistance : distance;
 			}
-		}
 
-		rb2d.position += move.normalized * distance;
+			rb2d.position += move.normalized * distance;
+		}
+	}
+
+	private void OnCollisionEnter2D(Collision2D other)
+	{
 	}
 }
