@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
 	{
 		eventSystem = GetComponentInParent<EventSystem>();
 		canvasGroup = GetComponent<CanvasGroup>();
-		
+
 		GameManager.controls.Interface.Pause.performed += context => TogglePauseMenu();
 	}
 
