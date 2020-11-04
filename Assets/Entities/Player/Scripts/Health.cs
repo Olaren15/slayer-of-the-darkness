@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
 
 	private void Update()
 	{
-		health = GetComponent<PlayerController>().life;
+		health = FindObjectOfType<PlayerController>().life;
 
 		if (health > numOfHearts)
 		{

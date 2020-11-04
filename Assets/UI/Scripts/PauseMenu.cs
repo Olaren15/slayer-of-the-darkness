@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
 	{
 		eventSystem = GetComponentInParent<EventSystem>();
 		canvasGroup = GetComponent<CanvasGroup>();
-		
+
 		GameManager.controls.Interface.Pause.performed += context => TogglePauseMenu();
 	}
 
@@ -31,6 +31,7 @@ public class PauseMenu : MonoBehaviour
 	private void Show()
 	{
 		canvasGroup.alpha = 1.0f;
+		canvasGroup.blocksRaycasts = true;
 		canvasGroup.interactable = true;
 		eventSystem.SetSelectedGameObject(defaultSelection);
 		GameManager.Pause();
@@ -39,9 +40,15 @@ public class PauseMenu : MonoBehaviour
 	public void Hide()
 	{
 		canvasGroup.alpha = 0.0f;
+		canvasGroup.blocksRaycasts = false;
 		canvasGroup.interactable = false;
 		eventSystem.SetSelectedGameObject(null);
 		GameManager.Resume();
+	}
+
+	public void Restart()
+	{
+		GameManager.Restart();
 	}
 
 	public void Quit()
