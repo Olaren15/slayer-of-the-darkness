@@ -15,6 +15,7 @@ public class PlayerController : PhysicsObject, IDamageable
 	public Transform attackPoint;
 	public float attackRange;
 	public LayerMask enemyLayer;
+	public LayerMask interactableLayer;
 
 	private Animator animator;
 	private ContactFilter2D ladderContactFilter;
@@ -31,9 +32,6 @@ public class PlayerController : PhysicsObject, IDamageable
 
 	[NonSerialized]
 	public bool isDead;
-
-	[NonSerialized]
-	public Inventory inventory;
 
 	private bool isFlipped;
 	private bool canDoubleJump;
@@ -258,6 +256,23 @@ public class PlayerController : PhysicsObject, IDamageable
 		if (other.CompareTag("Ladder"))
 		{
 			lastLadderXPosition = other.transform.position.x;
+		}
+
+		if (other.CompareTag("Coin"))
+		{
+			Collectable collectable = other.gameObject.GetComponent<Collectable>();
+			if (collectable != null)
+			{
+				collectable.Collect(gameObject);
+			}
+		}
+	}
+
+	private void OnTriggerStay2D(Collider2D collision)
+	{
+		if (GameManager.controls.Player.Use.ReadValue<float>() != 0)
+		{
+			collision.gameObject.GetComponent<Collectable>()?.Collect(gameObject);
 		}
 	}
 

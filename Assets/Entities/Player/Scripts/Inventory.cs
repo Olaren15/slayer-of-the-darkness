@@ -1,22 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
     public int money = 0;
-    
-    private void OnTriggerEnter2D(Collider2D collision)
+    private Text txtCoin;
+
+    private void Start()
     {
-        Collectable collectable = collision.gameObject.GetComponent<Collectable>();
-        if (collectable != null)
-        {
-            collectable.Collect(gameObject);
-        }
+        txtCoin = GameObject.Find("textCoin").GetComponent<Text>();
     }
 
     public void AddMoney(int moneyToAdd)
     {
         money += moneyToAdd;
+        txtCoin.text = money.ToString();
     }
 }
