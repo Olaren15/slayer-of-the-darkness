@@ -14,7 +14,7 @@ public class Chest : MonoBehaviour, Collectable
     {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
-        coinAmount = System.Convert.ToInt32(Random.Range(0, 10));
+        coinAmount = System.Convert.ToInt32(Random.Range(1, 11));
     }
 
     public void Collect(GameObject player)

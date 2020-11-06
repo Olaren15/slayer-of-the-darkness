@@ -33,9 +33,6 @@ public class PlayerController : PhysicsObject, IDamageable
 	[NonSerialized]
 	public bool isDead;
 
-	[NonSerialized]
-	public Inventory inventory;
-
 	private bool isFlipped;
 	private bool canDoubleJump;
 	private bool attachedToLadder;
@@ -89,7 +86,7 @@ public class PlayerController : PhysicsObject, IDamageable
 		}
 	}
 
-    private void JumpReleased()
+	private void JumpReleased()
 	{
 		if (velocity.y > 0.0f)
 		{
@@ -262,7 +259,7 @@ public class PlayerController : PhysicsObject, IDamageable
 		}
 
 		if (other.CompareTag("Coin"))
-        {
+		{
 			Collectable collectable = other.gameObject.GetComponent<Collectable>();
 			if (collectable != null)
 			{
@@ -271,16 +268,15 @@ public class PlayerController : PhysicsObject, IDamageable
 		}
 	}
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-		if (GameManager.controls.Player.Use.ReadValue<float>() > 0)
-        {
-			print("edded");
+	private void OnTriggerStay2D(Collider2D collision)
+	{
+		if (GameManager.controls.Player.Use.ReadValue<float>() != 0)
+		{
 			collision.gameObject.GetComponent<Collectable>()?.Collect(gameObject);
-        }
-    }
+		}
+	}
 
-    private void OnDrawGizmosSelected()
+	private void OnDrawGizmosSelected()
 	{
 		if (attackPoint == null)
 			return;

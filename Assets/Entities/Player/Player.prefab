@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 8485459275211454401}
   - component: {fileID: 8485459275211454402}
   - component: {fileID: -2989534014281401683}
+  - component: {fileID: 1646671241}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -207,6 +208,9 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1024
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 0
   life: 3
   attackDamage: 1
   maxImmunityTime: 2
@@ -227,6 +231,19 @@ MonoBehaviour:
   jumping: {fileID: 11400000, guid: 45da6b961d7690d4fbecdd67cabf2c38, type: 2}
   damaged: {fileID: 11400000, guid: 4ae77f7a795453e428de85952d9f5a63, type: 2}
   dying: {fileID: 11400000, guid: 83dcd0643c804ec4fa8fa54dc75b485d, type: 2}
+--- !u!114 &1646671241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8485459275211454415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c437bc2e070cd24493ce5ba716a746a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 0
 --- !u!1001 &8485459275418747624
 PrefabInstance:
   m_ObjectHideFlags: 0
