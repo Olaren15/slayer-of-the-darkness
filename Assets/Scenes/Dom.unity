@@ -6507,11 +6507,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3300645296234432542, guid: c547eb1db35cbc94e9bf2a26d0dd93bb,
+    - target: {fileID: 1799665987580884455, guid: c547eb1db35cbc94e9bf2a26d0dd93bb,
         type: 3}
-      propertyPath: m_BodyType
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: collectEffect
+      value: 
+      objectReference: {fileID: 3575950287715684727, guid: d20a02abb66091f499b2e26300c56633,
+        type: 3}
     - target: {fileID: 4172595992920815155, guid: c547eb1db35cbc94e9bf2a26d0dd93bb,
         type: 3}
       propertyPath: m_LocalPosition.x

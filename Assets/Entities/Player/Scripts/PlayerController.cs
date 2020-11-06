@@ -22,7 +22,6 @@ public class PlayerController : PhysicsObject, IDamageable
 	private readonly List<RaycastHit2D> ladderOverlaps = new List<RaycastHit2D>();
 	private SpriteRenderer spriteRenderer;
 	private PlayerSounds playerSounds;
-	private BoxCollider2D collider;
 
 	public int life = 3;
 	public int attackDamage = 1;
@@ -52,7 +51,6 @@ public class PlayerController : PhysicsObject, IDamageable
 	{
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		animator = GetComponent<Animator>();
-		collider = GetComponent<BoxCollider2D>();
 		playerSounds = GetComponent<PlayerSounds>();
 		ladderContactFilter.useTriggers = true;
 		ladderContactFilter.useLayerMask = true;
@@ -258,17 +256,24 @@ public class PlayerController : PhysicsObject, IDamageable
 		{
 			lastLadderXPosition = other.transform.position.x;
 		}
+
+		if (other.CompareTag("Coin"))
+        {
+			Collectable collectable = other.gameObject.GetComponent<Collectable>();
+			if (collectable != null)
+			{
+				collectable.Collect(gameObject);
+			}
+		}
 	}
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-		if (GameManager.controls.Player.Use.triggered)
+		if (GameManager.controls.Player.Use.ReadValue<float>() > 0)
         {
+			print("edded");
 			collision.gameObject.GetComponent<Collectable>()?.Collect(gameObject);
-			print(gameObject.GetComponent<Inventory>().money);
         }
-
-		
     }
 
     private void OnDrawGizmosSelected()

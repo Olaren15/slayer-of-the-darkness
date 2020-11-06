@@ -6470,12 +6470,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1892262073}
     m_Modifications:
-    - target: {fileID: 1245202602559534106, guid: 3f9abab8bd95bf64a8bbd0df3db0cff0,
-        type: 3}
-      propertyPath: moneyCollectEffect
-      value: 
-      objectReference: {fileID: 3575950287715684727, guid: d20a02abb66091f499b2e26300c56633,
-        type: 3}
     - target: {fileID: 1245202602559534109, guid: 3f9abab8bd95bf64a8bbd0df3db0cff0,
         type: 3}
       propertyPath: m_LocalPosition.x

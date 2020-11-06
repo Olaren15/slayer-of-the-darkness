@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 228984035}
   m_Layer: 12
   m_Name: Coin
-  m_TagString: Untagged
+  m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aeb1799997173f4a911c288e7f8b68e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectEffect: {fileID: 0}
+  moneyCollectEffect: {fileID: 3575950287715684727, guid: d20a02abb66091f499b2e26300c56633,
+    type: 3}
 --- !u!114 &228984035
 MonoBehaviour:
   m_ObjectHideFlags: 0
