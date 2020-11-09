@@ -54,14 +54,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Use",
-                    "type": "Button",
-                    "id": "7f072227-645d-4428-99cd-a786eaf0557c",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Interact",
                     "type": "Button",
                     "id": "43d91540-f59b-4b41-9464-b68db6191486",
@@ -217,7 +209,7 @@
                 {
                     "name": "",
                     "id": "ac8c576e-3ec5-4a31-a1ab-b06251ebd87c",
-                    "path": "<Keyboard>/leftCtrl",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -282,18 +274,6 @@
                 },
                 {
                     "name": "",
-                    "id": "85a50229-fd32-4680-bb79-7ef5d4b18e4a",
-                    "path": "<Keyboard>/enter",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Use",
-
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {                    
-                    "name": "",
                     "id": "9918ef07-7c27-489c-b907-eed5390ce18f",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -302,7 +282,17 @@
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
-
+                },
+                {
+                    "name": "",
+                    "id": "32479df6-73cb-4acd-8737-a73f890f9738",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/PatDoor.unity
-    guid: 065a319dc00eea345b961088360c07f4
+    path: Assets/Scenes/Main.unity
+    guid: c85aeb357f595514692ce4b5caf31fe8
   - enabled: 1
-    path: Assets/Scenes/PatNext.unity
+    path: Assets/Scenes/BossFight.unity
     guid: 296e4321601ad58479e96bbde259d935
   m_configObjects: {}

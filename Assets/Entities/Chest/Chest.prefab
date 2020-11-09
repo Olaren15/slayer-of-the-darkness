@@ -118,6 +118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCollected: 0
+  collectEffect: {fileID: 3575950287715684727, guid: d20a02abb66091f499b2e26300c56633,
+    type: 3}
 --- !u!61 &28941159
 BoxCollider2D:
   m_ObjectHideFlags: 0

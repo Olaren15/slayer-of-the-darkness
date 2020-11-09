@@ -67,14 +67,6 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Use"",
-                    ""type"": ""Button"",
-                    ""id"": ""7f072227-645d-4428-99cd-a786eaf0557c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""43d91540-f59b-4b41-9464-b68db6191486"",
@@ -230,7 +222,7 @@ public class @Controls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ac8c576e-3ec5-4a31-a1ab-b06251ebd87c"",
-                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -295,22 +287,22 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""85a50229-fd32-4680-bb79-7ef5d4b18e4a"",
-                    ""path"": ""<Keyboard>/enter"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Use"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""9918ef07-7c27-489c-b907-eed5390ce18f"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""32479df6-73cb-4acd-8737-a73f890f9738"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -722,7 +714,6 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_Climb = m_Player.FindAction("Climb", throwIfNotFound: true);
-        m_Player_Use = m_Player.FindAction("Use", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         // Interface
         m_Interface = asset.FindActionMap("Interface", throwIfNotFound: true);
@@ -790,7 +781,6 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_Climb;
-    private readonly InputAction m_Player_Use;
     private readonly InputAction m_Player_Interact;
     public struct PlayerActions
     {
@@ -802,7 +792,6 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
         public InputAction @Climb => m_Wrapper.m_Player_Climb;
-        public InputAction @Use => m_Wrapper.m_Player_Use;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -831,9 +820,6 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Climb.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClimb;
                 @Climb.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClimb;
                 @Climb.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnClimb;
-                @Use.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUse;
-                @Use.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUse;
-                @Use.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUse;
                 @Interact.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInteract;
@@ -859,9 +845,6 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Climb.started += instance.OnClimb;
                 @Climb.performed += instance.OnClimb;
                 @Climb.canceled += instance.OnClimb;
-                @Use.started += instance.OnUse;
-                @Use.performed += instance.OnUse;
-                @Use.canceled += instance.OnUse;
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
@@ -992,7 +975,6 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
         void OnClimb(InputAction.CallbackContext context);
-        void OnUse(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
     }
     public interface IInterfaceActions
