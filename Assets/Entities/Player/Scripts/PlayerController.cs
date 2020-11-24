@@ -138,7 +138,8 @@ public class PlayerController : PhysicsObject, IDamageable
 
 	private void Flip()
 	{
-		transform.rotation = Quaternion.Euler(0.0f, isFlipped ? 0.0f : 180.0f, 0.0f);
+		spriteRenderer.flipX = !spriteRenderer.flipX;
+		//transform.rotation = Quaternion.Euler(0.0f, isFlipped ? 0.0f : 180.0f, 0.0f);
 		isFlipped = !isFlipped;
 	}
 

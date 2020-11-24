@@ -58,4 +58,9 @@ public class WorldLimits : MonoBehaviour
 
 		return new Vector3(horizontalAdjust, verticalAdjust, 0.0f);
 	}
+
+    private void OnDrawGizmosSelected()
+    {
+		Gizmos.DrawWireCube(bounds.center, bounds.size);
+    }
 }
