@@ -24,10 +24,12 @@ Material:
         m_Texture: {fileID: 2800000, guid: d7d1fb7c23ec24245a00941ef07d09b8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats: []
+    m_Floats:
+    - PIxelationAmount: 50
+    - Transparency_: 0
     m_Colors:
-    - Color1_: {r: 0.7843137, g: 0.09803922, b: 0.130156, a: 0}
-    - Color2_: {r: 1, g: 0.8050867, b: 0, a: 0}
+    - Color1_: {r: 1, g: 0, b: 0.40392157, a: 0}
+    - Color2_: {r: 1, g: 0, b: 0.761323, a: 0}
     - Color_: {r: 0.7843137, g: 0.3141392, b: 0.09803922, a: 0}
 --- !u!114 &8390377448503134001
 MonoBehaviour:
