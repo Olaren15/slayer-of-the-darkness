@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class InteractableDoor : MonoBehaviour
 {
 	private AudioSource sound;
+	private MusicPlayer music;
 	public Animator transitionAnim;
-	public int sceneID;
 
 	private void Start()
 	{
 		sound = GetComponent<AudioSource>();
+		music = FindObjectOfType<MusicPlayer>();
 	}
 
 	private void OnTriggerStay2D(Collider2D collision)
@@ -30,6 +31,10 @@ public class InteractableDoor : MonoBehaviour
 	{
 		transitionAnim.SetTrigger("transitionEnd");
 		yield return new WaitForSeconds(1.5f);
-		SceneManager.LoadScene(sceneID);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		if (music != null)
+		{
+			music.ChangeMusic();
+		}
 	}
 }

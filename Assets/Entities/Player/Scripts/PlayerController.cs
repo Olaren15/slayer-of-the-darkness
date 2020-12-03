@@ -5,6 +5,7 @@ using System.Linq;
 
 public class PlayerController : PhysicsObject, IDamageable
 {
+	public static PlayerController instance;
 	public bool IsGrounded => grounded;
 
 	public float jumpTakeOffSpeed = 10;
@@ -57,10 +58,15 @@ public class PlayerController : PhysicsObject, IDamageable
 		ladderContactFilter.useLayerMask = true;
 		ladderContactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(LayerMask.NameToLayer("Ladders")));
 
-		GameManager.controls.Player.JumpPress.performed += context => JumpPressed();
-		GameManager.controls.Player.JumpRelease.performed += context => JumpReleased();
-		GameManager.controls.Player.Crouch.performed += context => CrouchPressed();
-		GameManager.controls.Player.Attack.performed += context => AttackPressed();
+		RegisterAction();
+
+		if (instance != null)
+		{
+			Destroy(this.gameObject);
+			return;
+		}
+		instance = this;
+		DontDestroyOnLoad(this.gameObject);
 	}
 
 	private void JumpPressed()
@@ -105,13 +111,16 @@ public class PlayerController : PhysicsObject, IDamageable
 
 	private void AttackPressed()
 	{
-		animator.SetTrigger(AttackTrigger);
-
-		Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
-
-		foreach (Collider2D enemy in hitEnemies)
+		if (instance)
 		{
-			enemy.GetComponent<IDamageable>()?.TakeDamage(attackDamage);
+			animator.SetTrigger(AttackTrigger);
+
+			Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+
+			foreach (Collider2D enemy in hitEnemies)
+			{
+				enemy.GetComponent<IDamageable>()?.TakeDamage(attackDamage);
+			}
 		}
 	}
 
@@ -282,6 +291,14 @@ public class PlayerController : PhysicsObject, IDamageable
 		Gizmos.DrawWireSphere(attackPoint.position, attackRange);
 	}
 
+	public void RegisterAction()
+	{
+		GameManager.controls.Player.JumpPress.performed += context => JumpPressed();
+		GameManager.controls.Player.JumpRelease.performed += context => JumpReleased();
+		GameManager.controls.Player.Crouch.performed += context => CrouchPressed();
+		GameManager.controls.Player.Attack.performed += context => AttackPressed();
+	}
+
 	public void RestoreHealth()
 	{
 		int maxNoOfHearts = FindObjectOfType<Health>().numOfHearts;
@@ -290,7 +307,7 @@ public class PlayerController : PhysicsObject, IDamageable
 	}
 
 	public void UpgradeAttackDamage(int attackDamageUpdate)
-    {
+	{
 		int newAttackDamage = attackDamage + attackDamageUpdate;
 
 		if (newAttackDamage <= maxAttackDamage)

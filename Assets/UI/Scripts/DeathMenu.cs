@@ -25,5 +25,6 @@ public class DeathMenu : MonoBehaviour
 	private void Restart()
 	{
 		GameManager.Restart();
+		Destroy(GameObject.Find("Player"));
 	}
 }
