@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
+	public static MusicPlayer instance;
+
 	private AudioSource audioSource;
 	public AudioClip[] musics;
 	private int musicIndex = 0;
@@ -11,15 +13,13 @@ public class MusicPlayer : MonoBehaviour
 	private void Awake()
 	{
 		audioSource = GetComponent<AudioSource>();
-		int numberOfMusicPlayer = FindObjectsOfType<MusicPlayer>().Length;
-		if (numberOfMusicPlayer > 1)
+		if (instance != null)
 		{
-			Destroy(gameObject); //on le supprime
+			Destroy(gameObject);
+			return;
 		}
-		else
-		{
-			DontDestroyOnLoad(gameObject);
-		}
+		instance = this;
+		DontDestroyOnLoad(gameObject);
 	}
 
 	public void ChangeMusic()

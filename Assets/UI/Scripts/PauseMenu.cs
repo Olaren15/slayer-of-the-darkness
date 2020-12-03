@@ -53,17 +53,25 @@ public class PauseMenu : MonoBehaviour
 	public void Restart()
 	{
 		GameManager.Restart();
+		Destroy(GameObject.Find("Player"));
 	}
 
 	public void Quit()
 	{
 		GameManager.Quit();
+		Destroy(GameObject.Find("Player"));
+		Destroy(GameObject.Find("Main Music"));
 	}
 
 	public void GoBackToMainMenu()
 	{
 		GameManager.Restart();
 		SceneManager.LoadScene(0);
-		music.RestartMusicPlayer();
+		if (music != null)
+		{
+			music.RestartMusicPlayer();
+		}
+		Destroy(GameObject.Find("Player"));
+		Destroy(GameObject.Find("Main Music"));
 	}
 }

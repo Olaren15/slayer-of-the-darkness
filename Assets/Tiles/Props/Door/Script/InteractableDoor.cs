@@ -32,6 +32,9 @@ public class InteractableDoor : MonoBehaviour
 		transitionAnim.SetTrigger("transitionEnd");
 		yield return new WaitForSeconds(1.5f);
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-		music.ChangeMusic();
+		if (music != null)
+		{
+			music.ChangeMusic();
+		}
 	}
 }

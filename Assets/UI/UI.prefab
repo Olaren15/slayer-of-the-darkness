@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 106194241}
   - component: {fileID: 106194240}
   - component: {fileID: 106194239}
+  - component: {fileID: 977465897}
   m_Layer: 5
   m_Name: Coins
   m_TagString: Untagged
@@ -36,9 +37,9 @@ RectTransform:
   m_Father: {fileID: 4758472462789849319}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 959.9999, y: 539.7015}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -960, y: -539.55334}
   m_SizeDelta: {x: 1920, y: 1079.1067}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &106194241
@@ -101,6 +102,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &977465897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106194238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 485b305852ee7ef43a5e35aa30cd5449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &119088511
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,9 +912,9 @@ RectTransform:
   m_Father: {fileID: 4758472462789849319}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 959.99994, y: 539.70154}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 959.99994, y: -539.70154}
   m_SizeDelta: {x: 1920, y: 1079.4031}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1055592885
