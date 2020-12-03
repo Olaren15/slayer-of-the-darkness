@@ -26,6 +26,7 @@ public class PlayerController : PhysicsObject, IDamageable
 
 	public int life = 3;
 	public int attackDamage = 1;
+	public int maxAttackDamage = 10;
 	public float maxImmunityTime = 2.0f;
 
 	[NonSerialized]
@@ -296,5 +297,22 @@ public class PlayerController : PhysicsObject, IDamageable
 		GameManager.controls.Player.JumpRelease.performed += context => JumpReleased();
 		GameManager.controls.Player.Crouch.performed += context => CrouchPressed();
 		GameManager.controls.Player.Attack.performed += context => AttackPressed();
+	}
+
+	public void RestoreHealth()
+	{
+		int maxNoOfHearts = FindObjectOfType<Health>().numOfHearts;
+
+		life = maxNoOfHearts;
+	}
+
+	public void UpgradeAttackDamage(int attackDamageUpdate)
+	{
+		int newAttackDamage = attackDamage + attackDamageUpdate;
+
+		if (newAttackDamage <= maxAttackDamage)
+		{
+			attackDamage = newAttackDamage;
+		}
 	}
 }
