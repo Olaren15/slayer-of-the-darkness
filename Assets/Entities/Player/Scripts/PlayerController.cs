@@ -25,6 +25,7 @@ public class PlayerController : PhysicsObject, IDamageable
 	private PlayerSounds playerSounds;
 
 	public int life = 3;
+	public int maxLife = 3;
 	public int attackDamage = 1;
 	public int maxAttackDamage = 10;
 	public float maxImmunityTime = 2.0f;
@@ -301,9 +302,20 @@ public class PlayerController : PhysicsObject, IDamageable
 
 	public void RestoreHealth()
 	{
-		int maxNoOfHearts = FindObjectOfType<Health>().numOfHearts;
+		int maxNoOfHearts = FindObjectOfType<Health>().maxLife;
 
 		life = maxNoOfHearts;
+	}
+
+	public void AddHeart(int numberOfHeartsToAdd)
+	{
+		int newNoOfHearts = maxLife + numberOfHeartsToAdd;
+		int maxNoOfHearts = FindObjectOfType<Health>().hearts.Length;
+
+		if (newNoOfHearts <= maxNoOfHearts)
+		{
+			maxLife = newNoOfHearts;
+		}
 	}
 
 	public void UpgradeAttackDamage(int attackDamageUpdate)
