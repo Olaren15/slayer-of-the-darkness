@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: cb7a407417407fd4c8c51c73c44a06e4
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Medieval Pixel
+  fontNames:
+  - Medieval Pixel
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8402ea275448aa642a685713736cee6d, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

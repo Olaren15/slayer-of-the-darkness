@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -8,10 +9,13 @@ public class PauseMenu : MonoBehaviour
 	private EventSystem eventSystem;
 	private CanvasGroup canvasGroup;
 
+	private MusicPlayer music;
+
 	private void Start()
 	{
 		eventSystem = GetComponentInParent<EventSystem>();
 		canvasGroup = GetComponent<CanvasGroup>();
+		music = FindObjectOfType<MusicPlayer>();
 
 		GameManager.controls.Interface.Pause.performed += context => TogglePauseMenu();
 	}
@@ -54,5 +58,12 @@ public class PauseMenu : MonoBehaviour
 	public void Quit()
 	{
 		GameManager.Quit();
+	}
+
+	public void GoBackToMainMenu()
+	{
+		GameManager.Restart();
+		SceneManager.LoadScene(0);
+		music.RestartMusicPlayer();
 	}
 }

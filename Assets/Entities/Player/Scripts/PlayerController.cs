@@ -5,6 +5,7 @@ using System.Linq;
 
 public class PlayerController : PhysicsObject, IDamageable
 {
+	public static PlayerController instance;
 	public bool IsGrounded => grounded;
 
 	public float jumpTakeOffSpeed = 10;
@@ -60,6 +61,14 @@ public class PlayerController : PhysicsObject, IDamageable
 		GameManager.controls.Player.JumpRelease.performed += context => JumpReleased();
 		GameManager.controls.Player.Crouch.performed += context => CrouchPressed();
 		GameManager.controls.Player.Attack.performed += context => AttackPressed();
+
+		if (instance != null)
+		{
+			Destroy(this.gameObject);
+			return;
+		}
+		instance = this;
+		DontDestroyOnLoad(this.gameObject);
 	}
 
 	private void JumpPressed()

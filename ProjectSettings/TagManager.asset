@@ -8,6 +8,7 @@ TagManager:
   - Platform
   - Ladder
   - Coin
+  - Music
   layers:
   - Default
   - TransparentFX
