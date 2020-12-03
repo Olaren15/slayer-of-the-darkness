@@ -5,19 +5,24 @@ using UnityEngine;
 public class Chest : MonoBehaviour, Collectable
 {
     private int coinAmount;
-    private Animator animator;
-    private AudioSource audioSource;
+    protected Animator animator;
+    protected AudioSource audioSource;
     public bool isCollected = false;
     public GameObject collectEffect;
 
     public void Start()
+    {
+        IniStart();
+    }
+
+    protected void IniStart()
     {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         coinAmount = System.Convert.ToInt32(Random.Range(1, 11));
     }
 
-    public void Collect(GameObject player)
+    public virtual void Collect(GameObject player)
     {
         if (!isCollected)
         {

@@ -12,13 +12,16 @@ public class Health : MonoBehaviour
 	public Sprite fullHeart;
 	public Sprite emptyHeart;
 
+	private PlayerController playerController;
+
 	private void Start()
 	{
+		playerController = FindObjectOfType<PlayerController>();
 	}
 
 	private void Update()
 	{
-		health = FindObjectOfType<PlayerController>().life;
+		health = playerController.life;
 
 		if (health > numOfHearts)
 		{
@@ -43,6 +46,17 @@ public class Health : MonoBehaviour
 			{
 				hearts[i].enabled = false;
 			}
+		}
+	}
+
+	public void AddHeart(int numberOfHeartsToAdd)
+    {
+		int newNoOfHearts = numOfHearts + numberOfHeartsToAdd;
+		int maxNoOfHearts = hearts.Length;
+
+		if (newNoOfHearts <= maxNoOfHearts)
+        {
+			numOfHearts = newNoOfHearts;
 		}
 	}
 }
