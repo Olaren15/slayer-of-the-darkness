@@ -264,6 +264,11 @@ public class PlayerController : PhysicsObject, IDamageable
 			Collectable collectable = other.gameObject.GetComponent<Collectable>();
 			collectable?.Collect(gameObject);
 		}
+
+        if (other.CompareTag("Lever"))
+        {
+			other.gameObject.GetComponent<Lever>().ActivateNext();
+        }
 	}
 
 	private void OnTriggerStay2D(Collider2D collision)
