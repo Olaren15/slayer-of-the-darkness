@@ -88,10 +88,14 @@ public class Enemy : MonoBehaviour, IDamageable
 		isDead = true;
 		Instantiate(deathEffect, new Vector3(transform.position.x, transform.position.y + transform.localScale.y),
 			Quaternion.identity);
-		
+
 		animator.SetTrigger(DieTrigger);
-		Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
 	}
+
+	public void DestroyEnemy()
+    {
+		Destroy(gameObject);
+    }
 
 	private void AnimationObserver(AnimationEvent e)
 	{

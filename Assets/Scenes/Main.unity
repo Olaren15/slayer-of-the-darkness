@@ -479,7 +479,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionAnim: {fileID: 730983448}
-  sceneID: 1
 --- !u!61 &386113641
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5057,40 +5056,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 106194242, guid: 5a9d4c8761caae64184d148aea9e588b, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 106194242, guid: 5a9d4c8761caae64184d148aea9e588b, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 106194242, guid: 5a9d4c8761caae64184d148aea9e588b, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 106194242, guid: 5a9d4c8761caae64184d148aea9e588b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 106194242, guid: 5a9d4c8761caae64184d148aea9e588b, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 959.9999
-      objectReference: {fileID: 0}
-    - target: {fileID: 106194242, guid: 5a9d4c8761caae64184d148aea9e588b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 539.7015
-      objectReference: {fileID: 0}
-    - target: {fileID: 4758472462789849305, guid: 5a9d4c8761caae64184d148aea9e588b,
-        type: 3}
-      propertyPath: m_MatchWidthOrHeight
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4758472462789849305, guid: 5a9d4c8761caae64184d148aea9e588b,
-        type: 3}
-      propertyPath: m_ScreenMatchMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4758472462789849307, guid: 5a9d4c8761caae64184d148aea9e588b,
         type: 3}
       propertyPath: m_Name

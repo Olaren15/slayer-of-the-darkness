@@ -5,28 +5,32 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-	public int health;
-	public int numOfHearts;
+	public int life;
+	public int maxLife;
 
 	public Image[] hearts;
 	public Sprite fullHeart;
 	public Sprite emptyHeart;
 
+	private PlayerController playerController;
+
 	private void Start()
 	{
+		playerController = FindObjectOfType<PlayerController>();
 	}
 
 	private void Update()
 	{
-		health = FindObjectOfType<PlayerController>().life;
+		life = playerController.life;
+		maxLife = playerController.maxLife;
 
-		if (health > numOfHearts)
+		if (life > maxLife)
 		{
-			health = numOfHearts;
+			life = maxLife;
 		}
 		for (int i = 0; i < hearts.Length; i++)
 		{
-			if (i < health)
+			if (i < life)
 			{
 				hearts[i].sprite = fullHeart;
 			}
@@ -35,7 +39,7 @@ public class Health : MonoBehaviour
 				hearts[i].sprite = emptyHeart;
 			}
 
-			if (i < numOfHearts)
+			if (i < maxLife)
 			{
 				hearts[i].enabled = true;
 			}
@@ -43,6 +47,17 @@ public class Health : MonoBehaviour
 			{
 				hearts[i].enabled = false;
 			}
+		}
+	}
+
+	public void AddHeart(int numberOfHeartsToAdd)
+	{
+		int newNoOfHearts = maxLife + numberOfHeartsToAdd;
+		int maxNoOfHearts = hearts.Length;
+
+		if (newNoOfHearts <= maxNoOfHearts)
+		{
+			maxLife = newNoOfHearts;
 		}
 	}
 }
