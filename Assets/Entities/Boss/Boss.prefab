@@ -194,4 +194,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPrefab: {fileID: 2224917109974873722, guid: 02b095a2463a52941acdb4014c52234a,
     type: 3}
-  attackDelay: 6
+  attackDelay: 3
