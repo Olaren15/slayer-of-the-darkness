@@ -6,6 +6,7 @@ public class Lever : MonoBehaviour
 {
     public GameObject m_NextLever = null;
     public bool m_IsEnabled = true;
+    public bool m_ExplodePlatform;
 
     private void Start()
     {
@@ -27,6 +28,21 @@ public class Lever : MonoBehaviour
 
         if (m_NextLever)
             m_NextLever.GetComponent<Lever>().Enable();
+
+        if (m_ExplodePlatform)
+            ExplodePlatform();
+    }
+
+    private void ExplodePlatform()
+    {
+        var plats = GameObject.FindGameObjectsWithTag("Explodable Platform");
+        foreach (var plat in plats)
+        {
+            Destroy(plat);
+            
+        }
+
+        GameObject.FindWithTag("Boss").GetComponent<Boss>().Die();
     }
 
     public void Disable()

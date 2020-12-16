@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 1158021535}
   - component: {fileID: 1158021536}
   - component: {fileID: 3167446505788281582}
+  - component: {fileID: 2461618453914649470}
   m_Layer: 10
   m_Name: Boss
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,3 +178,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bbb767a9e86d424385521c028fe98db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  victorySound: {fileID: 2713088505372901131, guid: 9008e8d02df05d14993afd27c69ae7c6,
+    type: 3}
+--- !u!114 &2461618453914649470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6546642491326973778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30157be5c2cb07b40a3dd9bda016dedb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPrefab: {fileID: 2224917109974873722, guid: 02b095a2463a52941acdb4014c52234a,
+    type: 3}
+  attackDelay: 3

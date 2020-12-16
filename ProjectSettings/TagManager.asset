@@ -11,6 +11,7 @@ TagManager:
   - Explodable Platform
   - Lever
   - Music
+  - Boss
   layers:
   - Default
   - TransparentFX
