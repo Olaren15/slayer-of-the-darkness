@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
 
 		controls = new Controls();
 		controls.Enable();
-		FindObjectOfType<PlayerController>()?.RegisterAction();
 	}
 
 	private void Update()
