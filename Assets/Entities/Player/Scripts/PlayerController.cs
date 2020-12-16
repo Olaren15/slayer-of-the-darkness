@@ -59,8 +59,6 @@ public class PlayerController : PhysicsObject, IDamageable
 		ladderContactFilter.useLayerMask = true;
 		ladderContactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(LayerMask.NameToLayer("Ladders")));
 
-		RegisterAction();
-
 		if (instance != null)
 		{
 			Destroy(this.gameObject);
