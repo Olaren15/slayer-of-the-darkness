@@ -36,6 +36,14 @@ public class MusicPlayer : MonoBehaviour
 	public void RestartMusicPlayer()
 	{
 		audioSource.Stop();
+		musicIndex = 1;
+		audioSource.clip = musics[musicIndex];
+		audioSource.Play();
+	}
+
+	public void MainMenuMusicPlayer()
+	{
+		audioSource.Stop();
 		musicIndex = 0;
 		audioSource.clip = musics[musicIndex];
 		audioSource.Play();

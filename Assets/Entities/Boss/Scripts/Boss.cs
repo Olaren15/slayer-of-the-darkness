@@ -6,36 +6,36 @@ using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
-    public GameObject victorySound;
-    private BossAttack _bossAttack;
+	public GameObject victorySound;
+	private BossAttack _bossAttack;
 
-    private void Start()
-    {
-        _bossAttack = GetComponent<BossAttack>();
-    }
+	private void Start()
+	{
+		_bossAttack = GetComponent<BossAttack>();
+	}
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.gameObject.GetComponent<PlayerController>().TakeDamage(1000);
-        }
-    }
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag("Player"))
+		{
+			collision.gameObject.GetComponent<PlayerController>().TakeDamage(1000);
+		}
+	}
 
-    public void Die()
-    {
-        _bossAttack.enabled = false;
-        StartCoroutine(nameof(PlayVictory));
-    }
+	public void Die()
+	{
+		_bossAttack.enabled = false;
+		StartCoroutine(nameof(PlayVictory));
+	}
 
-    private IEnumerator PlayVictory()
-    {
-        if (victorySound != null)
-        {
-            Instantiate(victorySound);
-            yield return new WaitForSeconds(5.0f);
-        }
+	private IEnumerator PlayVictory()
+	{
+		if (victorySound != null)
+		{
+			Instantiate(victorySound);
+			yield return new WaitForSeconds(5.0f);
+		}
 
-        SceneManager.LoadScene("MainMenu");
-    }
+		PauseMenu.GoBackToMainMenu();
+	}
 }

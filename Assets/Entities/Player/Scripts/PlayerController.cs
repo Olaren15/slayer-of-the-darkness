@@ -149,8 +149,8 @@ public class PlayerController : PhysicsObject, IDamageable
 
 	private void Flip()
 	{
-		spriteRenderer.flipX = !spriteRenderer.flipX;
-		//transform.rotation = Quaternion.Euler(0.0f, isFlipped ? 0.0f : 180.0f, 0.0f);
+		//spriteRenderer.flipX = !spriteRenderer.flipX;
+		transform.rotation = Quaternion.Euler(0.0f, isFlipped ? 0.0f : 180.0f, 0.0f);
 		isFlipped = !isFlipped;
 	}
 
@@ -276,10 +276,10 @@ public class PlayerController : PhysicsObject, IDamageable
 			collectable?.Collect(gameObject);
 		}
 
-        if (other.CompareTag("Lever"))
-        {
+		if (other.CompareTag("Lever"))
+		{
 			other.gameObject.GetComponent<Lever>().ActivateNext();
-        }
+		}
 	}
 
 	private void OnTriggerStay2D(Collider2D collision)

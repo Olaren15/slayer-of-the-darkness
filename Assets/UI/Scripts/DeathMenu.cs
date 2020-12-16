@@ -22,9 +22,9 @@ public class DeathMenu : MonoBehaviour
 		eventSystem.SetSelectedGameObject(defaultSelection);
 	}
 
-	private void Restart()
-	{
-		GameManager.Restart();
-		Destroy(GameObject.Find("Player"));
-	}
+	//private void Restart()
+	//{
+	//	GameManager.Restart();
+	//	Destroy(GameObject.Find("Player"));
+	//}
 }
